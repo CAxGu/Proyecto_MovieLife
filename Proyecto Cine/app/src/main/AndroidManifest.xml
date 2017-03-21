@@ -53,7 +53,7 @@
                 android:value="com.herprogramacion.restaurantericoparico.ui.ActividadPrincipal" />
         </activity>
         <activity
-            android:name=".ui.LocationActivity"
+            android:name=".ui.MAPS_Localizacion.LocationActivity"
             android:label="@string/lite_demo_label">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

@@ -1,4 +1,4 @@
-package com.herprogramacion.restaurantericoparico.ui;
+package com.herprogramacion.restaurantericoparico.ui.MAPS_Localizacion;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;

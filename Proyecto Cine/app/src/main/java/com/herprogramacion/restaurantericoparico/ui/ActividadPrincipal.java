@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.herprogramacion.restaurantericoparico.R;
+import com.herprogramacion.restaurantericoparico.ui.MAPS_Localizacion.LocationActivity;
 
 public class ActividadPrincipal extends AppCompatActivity {
 
