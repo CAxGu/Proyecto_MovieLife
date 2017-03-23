@@ -9,7 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.herprogramacion.restaurantericoparico.R;
-import com.herprogramacion.restaurantericoparico.modelo.Comida;
+import com.herprogramacion.restaurantericoparico.adapters.comida.AdaptadorCategorias;
+import com.herprogramacion.restaurantericoparico.models.Comida;
 
 /**
  * Fragmento que representa el contenido de cada pestaña dentro de la sección "Categorías"

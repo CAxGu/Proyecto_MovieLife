@@ -23,6 +23,10 @@
             android:id="@+id/item_locate"
             android:icon="@drawable/locate"
             android:title="@string/item_locate" />
+        <item
+            android:id="@+id/item_peliculas"
+            android:icon="@drawable/books"
+            android:title="@string/item_peliculas" />
     </group>
 
 </menu>

@@ -1,4 +1,4 @@
-package com.herprogramacion.restaurantericoparico.ui;
+package com.herprogramacion.restaurantericoparico.adapters.comida;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

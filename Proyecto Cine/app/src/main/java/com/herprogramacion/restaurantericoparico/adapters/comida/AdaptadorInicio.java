@@ -1,4 +1,4 @@
-package com.herprogramacion.restaurantericoparico.ui;
+package com.herprogramacion.restaurantericoparico.adapters.comida;
 
 import android.app.Activity;
 import android.content.Context;
@@ -11,7 +11,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.herprogramacion.restaurantericoparico.R;
-import com.herprogramacion.restaurantericoparico.modelo.Comida;
+import com.herprogramacion.restaurantericoparico.activities.comida.ActividadDetallesInicio;
+import com.herprogramacion.restaurantericoparico.models.Comida;
 
 import java.util.List;
 

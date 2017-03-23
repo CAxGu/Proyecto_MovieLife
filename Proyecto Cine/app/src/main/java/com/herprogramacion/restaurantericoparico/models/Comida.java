@@ -1,4 +1,4 @@
-package com.herprogramacion.restaurantericoparico.modelo;
+package com.herprogramacion.restaurantericoparico.models;
 
 import com.herprogramacion.restaurantericoparico.R;
 

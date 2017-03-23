@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.herprogramacion.restaurantericoparico.R;
+import com.herprogramacion.restaurantericoparico.adapters.comida.AdaptadorInicio;
 
 /**
  * Fragmento para la sección de "Inicio"

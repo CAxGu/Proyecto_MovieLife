@@ -1,4 +1,4 @@
-package com.herprogramacion.restaurantericoparico.ui;
+package com.herprogramacion.restaurantericoparico.activities.comida;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,7 +14,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.herprogramacion.restaurantericoparico.R;
-import com.herprogramacion.restaurantericoparico.ui.MAPS_Localizacion.LocationActivity;
+import com.herprogramacion.restaurantericoparico.activities.libros.PeliculasActivity;
+import com.herprogramacion.restaurantericoparico.activities.maps.LocationActivity;
+import com.herprogramacion.restaurantericoparico.ui.FragmentoCategorias;
+import com.herprogramacion.restaurantericoparico.ui.FragmentoCuenta;
+import com.herprogramacion.restaurantericoparico.ui.FragmentoInicio;
 
 public class ActividadPrincipal extends AppCompatActivity {
 
@@ -82,6 +86,9 @@ public class ActividadPrincipal extends AppCompatActivity {
                 break;
             case R.id.item_locate:
                 startActivity(new Intent(this, LocationActivity.class));
+                break;
+            case R.id.item_peliculas:
+                startActivity(new Intent(this, PeliculasActivity.class));
                 break;
         }
         if (fragmentoGenerico != null) {
