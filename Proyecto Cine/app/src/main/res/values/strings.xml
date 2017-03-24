@@ -4,6 +4,7 @@
     <string name="action_settings">Configuración</string>
     <string name="action_search">Buscar</string>
     <string name="action_carrito">Añadir al carrito</string>
+    <string name="action_insertar">Insertar</string>
 
     <string name="item_inicio">Inicio</string>
     <string name="item_cuenta">Mi Cuenta</string>
@@ -11,6 +12,7 @@
     <string name="item_configuracion">Configuración</string>
     <string name="item_locate">Localización</string>
     <string name="item_peliculas">Libros</string>
+    <string name="item_crud">CRUD</string>
 
     <string name="titulo_comidas_populares">Lo más pedido</string>
 
@@ -41,4 +43,19 @@
     <string name="lite_go_to_australia">Go to C.Valenciana (Four Markers)</string>
     <string name="lite_list_demo_label">Lite Mode ListView</string>
     <string name="lite_list_demo_description">Demonstrates using maps in lite mode in a ListView.</string>
+
+
+    <!--SQLITE -->
+    <string name="hello">Hello World, TareasSQLiteActivity!</string>
+    <string name="menu_insert">Agregar tarea</string>
+    <string name="menu_delete">Borrar</string>
+    <string name="todo_summary">Nombre</string>
+    <string name="todo_description">Borrar</string>
+    <string name="todo_edit_summary">Nombre</string>
+    <string name="todo_edit_description">Descripción</string>
+    <string name="todo_edit_confirm">Aceptar</string>
+    <string name="no_todos">Aún no existen elementos en la lista.</string>
+    <color name="listcolor">#94A65D</color>
+    <color name="black">#000000</color>
+
 </resources>

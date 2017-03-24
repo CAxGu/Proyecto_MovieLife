@@ -8,6 +8,7 @@
          location permissions for the 'MyLocation' functionality.
     -->
 
+
     <!-- Permisos MAPS -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
@@ -78,6 +79,12 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.herprogramacion.restaurantericoparico.activities.libros.PeliculasActivity" />
+        </activity>
+        <activity android:name=".activities.database.SQLITE.TareasSQLiteActivity"
+                android:label="@string/app_name">
+        </activity>
+        <activity android:name=".activities.database.SQLITE.Details"
+            android:windowSoftInputMode="stateVisible|adjustResize">
         </activity>
     </application>
 

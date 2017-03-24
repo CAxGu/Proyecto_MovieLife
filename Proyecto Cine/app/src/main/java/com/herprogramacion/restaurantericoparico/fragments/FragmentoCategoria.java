@@ -1,4 +1,4 @@
-package com.herprogramacion.restaurantericoparico.ui;
+package com.herprogramacion.restaurantericoparico.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

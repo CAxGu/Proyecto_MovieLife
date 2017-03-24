@@ -16,10 +16,6 @@
             android:icon="@drawable/categorias"
             android:title="@string/item_categorias" />
         <item
-            android:id="@+id/item_configuracion"
-            android:icon="@drawable/configuracion"
-            android:title="@string/item_configuracion" />
-        <item
             android:id="@+id/item_locate"
             android:icon="@drawable/locate"
             android:title="@string/item_locate" />
@@ -27,6 +23,14 @@
             android:id="@+id/item_peliculas"
             android:icon="@drawable/books"
             android:title="@string/item_peliculas" />
+        <item
+            android:id="@+id/item_crud"
+            android:icon="@drawable/crud"
+            android:title="@string/item_crud" />
+        <item
+            android:id="@+id/item_configuracion"
+            android:icon="@drawable/configuracion"
+            android:title="@string/item_configuracion" />
     </group>
 
 </menu>
