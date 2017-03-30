@@ -6,7 +6,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/listcolor"
-    tools:context=".activities.database.SQLITE.TareasSQLiteActivity">
+    tools:context=".activities.database.sqlite.TareasSQLiteActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
@@ -35,7 +35,7 @@
         android:text="@string/no_todos" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/fab2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"

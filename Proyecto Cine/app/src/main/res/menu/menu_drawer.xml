@@ -28,6 +28,10 @@
             android:icon="@drawable/crud"
             android:title="@string/item_crud" />
         <item
+            android:id="@+id/item_crud_firebase"
+            android:icon="@drawable/crud"
+            android:title="@string/item_crud_firebase" />
+        <item
             android:id="@+id/item_configuracion"
             android:icon="@drawable/configuracion"
             android:title="@string/item_configuracion" />

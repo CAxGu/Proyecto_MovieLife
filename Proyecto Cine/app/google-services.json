@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "473725360757",
+    "firebase_url": "https://cineapp-b4786.firebaseio.com",
+    "project_id": "cineapp-b4786",
+    "storage_bucket": "cineapp-b4786.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:473725360757:android:2b50f364c420cf45",
+        "android_client_info": {
+          "package_name": "com.herprogramacion.restaurantericoparico"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "473725360757-pv8k89oa7trbpf4drjbjojntu0ojsag4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.herprogramacion.restaurantericoparico",
+            "certificate_hash": "c860467cbae3a8ba611d5e443403c2076443e233"
+          }
+        },
+        {
+          "client_id": "473725360757-c00c956led8378dvtq4qq068r23tlopr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlbOXjwH-yjEoVJBTF34iZypOZAU-L2oU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "473725360757-c00c956led8378dvtq4qq068r23tlopr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

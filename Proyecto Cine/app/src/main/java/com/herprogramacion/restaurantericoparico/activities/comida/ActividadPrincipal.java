@@ -14,12 +14,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.herprogramacion.restaurantericoparico.R;
+import com.herprogramacion.restaurantericoparico.activities.database.firebase.FireBaseActivity;
 import com.herprogramacion.restaurantericoparico.activities.libros.PeliculasActivity;
 import com.herprogramacion.restaurantericoparico.activities.maps.LocationActivity;
 import com.herprogramacion.restaurantericoparico.fragments.FragmentoCategorias;
 import com.herprogramacion.restaurantericoparico.fragments.FragmentoCuenta;
 import com.herprogramacion.restaurantericoparico.fragments.FragmentoInicio;
-import com.herprogramacion.restaurantericoparico.activities.database.SQLITE.TareasSQLiteActivity;
+import com.herprogramacion.restaurantericoparico.activities.database.sqlite.TareasSQLiteActivity;
 
 public class ActividadPrincipal extends AppCompatActivity {
 
@@ -93,6 +94,9 @@ public class ActividadPrincipal extends AppCompatActivity {
                 break;
             case R.id.item_crud:
                 startActivity(new Intent(this, TareasSQLiteActivity.class));
+                break;
+            case R.id.item_crud_firebase:
+                startActivity(new Intent(this, FireBaseActivity.class));
                 break;
         }
         if (fragmentoGenerico != null) {
