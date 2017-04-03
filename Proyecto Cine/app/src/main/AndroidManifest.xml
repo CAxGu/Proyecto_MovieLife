@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.herprogramacion.restaurantericoparico">
+    package="com.herprogramacion.movielife">
 
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -34,7 +34,7 @@
             android:value="AIzaSyCsOdB3mIUGnSTZs7LHVBK1y6s0idNFEdk" />
 
         <activity
-            android:name=".activities.comida.ActividadPrincipal"
+            android:name="com.herprogramacion.movielife.activities.film.ActividadPrincipal"
             android:label="@string/app_name"
             android:theme="@style/Theme.ConNavigationDrawer">
             <intent-filter>
@@ -44,56 +44,56 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.comida.ActividadConfiguracion"
+            android:name="com.herprogramacion.movielife.activities.film.ActividadConfiguracion"
             android:label="@string/titulo_actividad_configuracion"
-            android:parentActivityName=".activities.comida.ActividadPrincipal">
+            android:parentActivityName="com.herprogramacion.movielife.activities.film.ActividadPrincipal">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.comida.ActividadPrincipal" />
+                android:value="com.herprogramacion.movielife.activities.film.ActividadPrincipal" />
         </activity>
         <activity
-            android:name=".activities.comida.ActividadDetallesInicio"
+            android:name="com.herprogramacion.movielife.activities.film.ActividadDetallesPeliSeries"
             android:label="@string/title_activity_actividad_detalles_inicio"
-            android:parentActivityName=".activities.comida.ActividadPrincipal">
+            android:parentActivityName="com.herprogramacion.movielife.activities.film.ActividadPrincipal">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.herprogramacion.restaurantericoparico.activities.comida.ActividadPrincipal" />
+                android:value="com.herprogramacion.movielife.activities.film.ActividadPrincipal" />
         </activity>
         <activity
-            android:name=".activities.maps.LocationActivity"
-            android:label="@string/lite_demo_label"
-            android:parentActivityName=".activities.comida.ActividadPrincipal">
+            android:name="com.herprogramacion.movielife.activities.maps.LocationActivity"
+            android:label="@string/item_locate"
+            android:parentActivityName="com.herprogramacion.movielife.activities.film.ActividadPrincipal">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.herprogramacion.restaurantericoparico.activities.comida.ActividadPrincipal" />
+                android:value="com.herprogramacion.movielife.activities.film.ActividadPrincipal" />
         </activity>
         <activity
-            android:name=".activities.libros.PeliculasActivity"
+            android:name="com.herprogramacion.movielife.activities.libros.PeliculasActivity"
             android:label="@string/item_peliculas"
-            android:parentActivityName=".activities.comida.ActividadPrincipal">
+            android:parentActivityName="com.herprogramacion.movielife.activities.film.ActividadPrincipal">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.herprogramacion.restaurantericoparico.activities.comida.ActividadPrincipal" />
+                android:value="com.herprogramacion.movielife.activities.film.ActividadPrincipal" />
         </activity>
         <activity
-            android:name=".activities.libros.BookDetailActivity"
+            android:name="com.herprogramacion.movielife.activities.libros.BookDetailActivity"
             android:label="@string/item_peliculas"
-            android:parentActivityName=".activities.libros.PeliculasActivity">
+            android:parentActivityName="com.herprogramacion.movielife.activities.libros.PeliculasActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.herprogramacion.restaurantericoparico.activities.libros.PeliculasActivity" />
+                android:value="com.herprogramacion.movielife.activities.libros.PeliculasActivity" />
         </activity>
         <activity
-            android:name=".activities.database.sqlite.TareasSQLiteActivity"
+            android:name="com.herprogramacion.movielife.activities.database.sqlite.TareasSQLiteActivity"
             android:label="@string/app_name"/>
         <activity
-            android:name=".activities.database.sqlite.Details"
+            android:name="com.herprogramacion.movielife.activities.database.sqlite.Details"
             android:windowSoftInputMode="stateVisible|adjustResize"/>
-        <activity android:name=".activities.database.firebase.FireBaseActivity"
-            android:parentActivityName=".activities.comida.ActividadPrincipal">
+        <activity android:name="com.herprogramacion.movielife.activities.database.firebase.FireBaseActivity"
+            android:parentActivityName="com.herprogramacion.movielife.activities.film.ActividadPrincipal">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.herprogramacion.restaurantericoparico.activities.comida.ActividadPrincipal" />
+                android:value="com.herprogramacion.movielife.activities.film.ActividadPrincipal" />
         </activity>
     </application>
 

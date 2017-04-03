@@ -1,25 +1,24 @@
 <resources>
-    <string name="app_name">"Restaurante Rico Pa Rico "</string>
+    <string name="app_name">"MovieLife"</string>
 
     <string name="action_settings">Configuración</string>
     <string name="action_search">Buscar</string>
     <string name="action_carrito">Añadir al carrito</string>
     <string name="action_insertar">Insertar</string>
 
-    <string name="item_inicio">Inicio</string>
+    <string name="item_estrenos">Estrenos</string>
     <string name="item_cuenta">Mi Cuenta</string>
-    <string name="item_categorias">Categorías</string>
+    <string name="item_mis_favoritos">Mis Favoritos</string>
     <string name="item_configuracion">Configuración</string>
-    <string name="item_locate">Localización</string>
-    <string name="item_peliculas">Libros</string>
+    <string name="item_locate">Cerca de ti</string>
+    <string name="item_peliculas">Buscar</string>
     <string name="item_crud">CRUD</string>
     <string name="item_crud_firebase">FIRE BASE</string>
 
-    <string name="titulo_comidas_populares">Lo más pedido</string>
+    <string name="titulo_estrenos">Estrenos</string>
 
-    <string name="titulo_tab_platillos">PLATILLOS</string>
-    <string name="titulo_tab_bebidas">BEBIDAS</string>
-    <string name="titulo_tab_postres">POSTRES</string>
+    <string name="titulo_tab_peliculas">PELICULAS</string>
+    <string name="titulo_tab_series">SERIES</string>
 
     <string name="titulo_tab_perfil">PERFIL</string>
     <string name="titulo_tab_direcciones">DIRECCIONES</string>
@@ -27,16 +26,16 @@
 
     <string name="texto_no_tarjetas">No tienes ninguna tarjeta asociada</string>
 
-    <string name="etiqueta_carrito">Carrito</string>
+    <string name="etiqueta_user">Carlos Axel</string>
 
     <string name="texto_cambiar_contrasena">Cambia tu contraseña</string>
     <string name="etiqueta_contrasena">Contraseña</string>
     <string name="etiqueta_info_usuario">Información del usuario</string>
     <string name="title_activity_actividad_detalles_inicio">ActividadDetallesInicio</string>
-    <string name="title_activity_locate">Localizacion</string>
+    <string name="title_activity_locate">Cerca de </string>
 
     <!-- Lite Mode -->
-    <string name="lite_demo_label">Localización</string>
+    <string name="lite_demo_label">Cerca de ti</string>
     <string name="lite_demo_description">Demonstrates some features on a map in lite mode.</string>
     <string name="lite_demo_intro">Click the map with no, one or multiple markers displayed to open the Google Maps Mobile app.</string>
     <string name="lite_go_to_darwin">Go to Ontinyent (No Markers)</string>

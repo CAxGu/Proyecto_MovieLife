@@ -8,17 +8,25 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:473725360757:android:2b50f364c420cf45",
+        "mobilesdk_app_id": "1:473725360757:android:00c4b9d17002126c",
         "android_client_info": {
-          "package_name": "com.herprogramacion.restaurantericoparico"
+          "package_name": "com.herprogramacion.movielife"
         }
       },
       "oauth_client": [
         {
-          "client_id": "473725360757-pv8k89oa7trbpf4drjbjojntu0ojsag4.apps.googleusercontent.com",
+          "client_id": "473725360757-i80ksolq3ha669s18o74u9650qr2vv1o.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.herprogramacion.restaurantericoparico",
+            "package_name": "com.herprogramacion.movielife",
+            "certificate_hash": "4e8763e04697d3d09b0aff4aac42d32490188287"
+          }
+        },
+        {
+          "client_id": "473725360757-kdt72us92tjvq40js081i1j85803snrl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.herprogramacion.movielife",
             "certificate_hash": "c860467cbae3a8ba611d5e443403c2076443e233"
           }
         },

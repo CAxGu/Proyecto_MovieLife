@@ -3,26 +3,22 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/item_inicio"
+            android:id="@+id/item_estrenos"
             android:checked="true"
-            android:icon="@drawable/inicio"
-            android:title="@string/item_inicio" />
-        <item
-            android:id="@+id/item_cuenta"
-            android:icon="@drawable/cuenta"
-            android:title="@string/item_cuenta" />
-        <item
-            android:id="@+id/item_categorias"
-            android:icon="@drawable/categorias"
-            android:title="@string/item_categorias" />
+            android:icon="@drawable/newgrey"
+            android:title="@string/item_estrenos" />
         <item
             android:id="@+id/item_locate"
-            android:icon="@drawable/locate"
+            android:icon="@drawable/cerca"
             android:title="@string/item_locate" />
         <item
             android:id="@+id/item_peliculas"
-            android:icon="@drawable/books"
+            android:icon="@drawable/searchgrey"
             android:title="@string/item_peliculas" />
+        <item
+            android:id="@+id/item_mis_favoritos"
+            android:icon="@drawable/fabgrey"
+            android:title="@string/item_mis_favoritos" />
         <item
             android:id="@+id/item_crud"
             android:icon="@drawable/crud"
@@ -31,6 +27,10 @@
             android:id="@+id/item_crud_firebase"
             android:icon="@drawable/crud"
             android:title="@string/item_crud_firebase" />
+        <item
+            android:id="@+id/item_cuenta"
+            android:icon="@drawable/cuenta"
+            android:title="@string/item_cuenta" />
         <item
             android:id="@+id/item_configuracion"
             android:icon="@drawable/configuracion"

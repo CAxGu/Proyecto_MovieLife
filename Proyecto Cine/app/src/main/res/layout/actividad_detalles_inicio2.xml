@@ -5,7 +5,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    tools:context="com.herprogramacion.restaurantericoparico.activities.comida.ActividadDetallesInicio">
+    tools:context="com.herprogramacion.movielife.activities.film.ActividadDetallesPeliSeries">
 
 
     <android.support.design.widget.AppBarLayout
@@ -15,7 +15,7 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/toolbar_detallesbase"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
@@ -44,7 +44,7 @@
             android:transitionName="camarones" />
 
         <TextView
-            android:id="@+id/plato_name"
+            android:id="@+id/peliserie_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -67,7 +67,7 @@
             android:textColor="?android:textColorPrimary"
             />
         <TextView
-            android:id="@+id/precio_comida"
+            android:id="@+id/anyo_peliculaserie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"

@@ -2,8 +2,8 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/primaryColor"
+    android:layout_height="190dp"
+    android:background="@drawable/bannermenu"
     android:gravity="bottom"
     android:orientation="vertical"
     android:padding="@dimen/padding_izquierdo_cabecera"
@@ -11,10 +11,10 @@
 
     <!-- Logo Rico Pa' Rico -->
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/logo"
         android:layout_width="@dimen/ancho_logo"
         android:layout_height="wrap_content"
-        android:src="@drawable/logo" />
+        android:src="@drawable/movielife" />
 
     <TableLayout
         android:layout_width="match_parent"
@@ -30,34 +30,33 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/icono_carrito"
+                android:id="@+id/icono_user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="8dp"
-                android:src="@drawable/carrito_compras" />
+                android:src="@drawable/group_white" />
 
             <TextView
                 android:id="@+id/etiqueta_carrito"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:text="@string/etiqueta_carrito"
+                android:text="@string/etiqueta_user"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textStyle="bold" />
 
         </TableRow>
-
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/texto_total_carrito"
+                android:id="@+id/texto_mailuser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="1"
                 android:layout_gravity="center_vertical"
-                android:text="$ 0"
+                android:text="caxelcastex@gmail.com"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textStyle="bold" />
         </TableRow>

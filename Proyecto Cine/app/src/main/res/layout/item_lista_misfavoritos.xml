@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="1dp">
+
+    <ImageView
+        android:id="@+id/miniatura_caratula"
+        android:layout_width="match_parent"
+        android:layout_height="192dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/accentColor"
+        android:orientation="vertical"
+        android:padding="@dimen/espacio_norma_1">
+
+        <TextView
+            android:id="@+id/anyo_peliculaserie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
+            android:textStyle="normal|bold"
+            android:shadowColor="#000000"
+            android:shadowDx="3" android:shadowDy="5" android:shadowRadius="5"/>
+
+        <TextView
+            android:id="@+id/anyo_peliserie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Anyo"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
+            android:textSize="12sp"
+            android:shadowColor="#000000"
+            android:shadowDx="3" android:shadowDy="5" android:shadowRadius="5"/>
+
+    </LinearLayout>
+</LinearLayout>

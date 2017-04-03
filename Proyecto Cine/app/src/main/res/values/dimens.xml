@@ -7,7 +7,7 @@
 
     <dimen name="altura_miniatura_comida">250dp</dimen>
 
-    <dimen name="ancho_logo">200dp</dimen>
+    <dimen name="ancho_logo">180dp</dimen>
 
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
