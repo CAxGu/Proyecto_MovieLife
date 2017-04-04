@@ -45,7 +45,7 @@ public class FragmentoMisFavoritosCont extends Fragment {
 
         switch (indiceSeccion) {
             case 0:
-                    adaptador = new AdaptadorMisFavoritos(getContext(),Pelis.PELICULAS);
+                adaptador = new AdaptadorMisFavoritos(getContext(),Pelis.PELICULAS);
                 break;
             case 1:
                 adaptador = new AdaptadorMisFavoritos(getContext(),Pelis.SERIES);

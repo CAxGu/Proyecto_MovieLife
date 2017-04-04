@@ -49,8 +49,8 @@
 //                .load(item.getIdDrawable())
 //                .centerCrop()
 //                .into(viewHolder.imagen);
-//        viewHolder.nombre.setText(item.getNombre());
-//        viewHolder.precio.setText("$" + item.getAnyo());
+//        viewHolder.title.setText(item.getNombre());
+//        viewHolder.year.setText("$" + item.getAnyo());
 //    }
 //
 //    public void onItemClick(View view, int position) {
@@ -65,16 +65,16 @@
 //
 //    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 //        // Campos respectivos de un item
-//        public TextView nombre;
-//        public TextView precio;
+//        public TextView title;
+//        public TextView year;
 //        public ImageView imagen;
 //
 //        public ItemClickListener listener;
 //
 //        public ViewHolder(View v,ItemClickListener listener) {
 //            super(v);
-//            nombre = (TextView) v.findViewById(R.id.nombre_comida);
-//            precio = (TextView) v.findViewById(R.id.precio_comida);
+//            title = (TextView) v.findViewById(R.id.nombre_comida);
+//            year = (TextView) v.findViewById(R.id.precio_comida);
 //            imagen = (ImageView) v.findViewById(R.id.miniatura_comida);
 //            v.setOnClickListener(this);
 //            this.listener=listener;

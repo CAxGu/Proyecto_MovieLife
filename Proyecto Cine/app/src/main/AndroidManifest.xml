@@ -68,20 +68,19 @@
                 android:value="com.herprogramacion.movielife.activities.film.ActividadPrincipal" />
         </activity>
         <activity
-            android:name="com.herprogramacion.movielife.activities.libros.PeliculasActivity"
-            android:label="@string/item_peliculas"
-            android:parentActivityName="com.herprogramacion.movielife.activities.film.ActividadPrincipal">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.herprogramacion.movielife.activities.film.ActividadPrincipal" />
+        android:name="com.herprogramacion.movielife.activities.film.Search_Activity"
+        android:label="@string/item_peliculas">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.herprogramacion.movielife.activities.film.ActividadPrincipal" />
         </activity>
         <activity
-            android:name="com.herprogramacion.movielife.activities.libros.BookDetailActivity"
+            android:name="com.herprogramacion.movielife.activities.film.SearchDetailActivity"
             android:label="@string/item_peliculas"
-            android:parentActivityName="com.herprogramacion.movielife.activities.libros.PeliculasActivity">
+            android:parentActivityName="com.herprogramacion.movielife.activities.film.Search_Activity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.herprogramacion.movielife.activities.libros.PeliculasActivity" />
+                android:value="com.herprogramacion.movielife.activities.film.Search_Activity"/>
         </activity>
         <activity
             android:name="com.herprogramacion.movielife.activities.database.sqlite.TareasSQLiteActivity"

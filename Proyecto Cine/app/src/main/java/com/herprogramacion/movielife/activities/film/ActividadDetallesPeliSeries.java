@@ -37,15 +37,15 @@
 //    }
 //
 //    private void setupViews(List <Comida> items,int position) {
-//        TextView nombre = (TextView) findViewById(R.id.plato_name);
-//        TextView precio = (TextView) findViewById(R.id.precio_comida);
+//        TextView title = (TextView) findViewById(R.id.plato_name);
+//        TextView year = (TextView) findViewById(R.id.precio_comida);
 //        ImageView imagen = (ImageView) findViewById(R.id.imageView);
 //        RatingBar rating = (RatingBar) findViewById(R.id.detail_rating);
 //
 //        Comida detallesComida = Comida.getComidaByPosition(items,position);
 //        setTitle(detallesComida.getNombre());
-//        nombre.setText(detallesComida.getNombre());
-//        precio.setText("$" + detallesComida.getAnyo());
+//        title.setText(detallesComida.getNombre());
+//        year.setText("$" + detallesComida.getAnyo());
 //        rating.setRating(detallesComida.getRating());
 //        Glide.with(this).load(detallesComida.getIdDrawable()).into(imagen);
 //    }

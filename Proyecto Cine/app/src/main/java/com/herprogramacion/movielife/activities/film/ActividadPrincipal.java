@@ -6,25 +6,28 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.herprogramacion.movielife.R;
 import com.herprogramacion.movielife.activities.database.firebase.FireBaseActivity;
-import com.herprogramacion.movielife.activities.libros.PeliculasActivity;
-import com.herprogramacion.movielife.activities.maps.LocationActivity;
-import com.herprogramacion.movielife.fragments.FragmentoMisFavoritos;
-import com.herprogramacion.movielife.fragments.FragmentoCuenta;
-import com.herprogramacion.movielife.fragments.FragmentoPeliSeries;
 import com.herprogramacion.movielife.activities.database.sqlite.TareasSQLiteActivity;
+import com.herprogramacion.movielife.activities.maps.LocationActivity;
+import com.herprogramacion.movielife.fragments.FragmentoCuenta;
+import com.herprogramacion.movielife.fragments.FragmentoMisFavoritos;
+import com.herprogramacion.movielife.fragments.FragmentoPeliSeries;
 
 public class ActividadPrincipal extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
+    public static String search;
+    public static final String   BOOK_DETAIL_KEY = "book";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +93,7 @@ public class ActividadPrincipal extends AppCompatActivity {
                 startActivity(new Intent(this, LocationActivity.class));
                 break;
             case R.id.item_peliculas:
-                startActivity(new Intent(this, PeliculasActivity.class));
+                startActivity(new Intent(this, Search_Activity.class));
                 break;
             case R.id.item_crud:
                 startActivity(new Intent(this, TareasSQLiteActivity.class));
@@ -110,10 +113,38 @@ public class ActividadPrincipal extends AppCompatActivity {
         setTitle(itemDrawer.getTitle());
     }
 
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_actividad_principal, menu);
+        final MenuItem searchItem = menu.findItem(R.id.action_search);
+        final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+        //  searchView.setIconifiedByDefault(true);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                // Fetch the data remotely
+                if(query != null) {
+                    search=query;
+                    // Reset SearchView
+                    searchView.clearFocus();
+                    searchView.setQuery("", false);
+                    searchView.setIconified(true);
+                    searchItem.collapseActionView();
+                    startactividad();
+                    return true;
+                }else
+                    return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                return false;
+            }
+        });
+
         return true;
+    }
+    public void startactividad(){
+        startActivity(new Intent(this, Search_Activity.class));
     }
 
     @Override

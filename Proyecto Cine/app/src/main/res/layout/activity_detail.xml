@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <FrameLayout
+                android:id="@+id/productimage"
+                android:layout_width="match_parent"
+                android:layout_height="379dp"
+                android:background="#000000"
+                android:elevation="4dp"
+                android:visibility="visible">
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:transitionName="shared_image" />
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fab"
+                    android:layout_width="@dimen/size_fab"
+                    android:layout_height="@dimen/size_fab"
+                    android:layout_margin="@dimen/fab_margin"
+                    android:src="@drawable/fabnegro"
+                    android:layout_gravity="bottom|right"/>
+            </FrameLayout>
+            <LinearLayout
+                android:id="@+id/rating"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/productimage"
+                android:background="#fff"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:visibility="visible">
+
+
+                <RatingBar
+                    android:id="@+id/ratingbar"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:isIndicator="false"
+                    />
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="250"
+                    android:textColor="#000"
+                    android:textSize="26dp" />
+            </LinearLayout>
+            <LinearLayout
+
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rating"
+                android:background="#fff"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <TextView
+                    android:id="@+id/type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="Serie"
+                    android:textSize="20dp" />
+                <TextView
+                    android:id="@+id/tag_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="16dp"
+                    android:text="Description"
+                    android:textColor="?colorPrimary" />
+
+                <TextView
+                    android:id="@+id/plot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur placerat ornare nulla a ultrices. Nam accumsan gravida dui ut ornare. Aliquam ultricies dapibus lacus. Suspendisse in justo sed diam suscipit pellentesque tristique non metus. Fusce sit amet dignissim lorem. Etiam vel quam nec nisl viverra placerat. Nam quam est, iaculis."
+                    />
+                <TextView
+                    android:id="@+id/lang"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Language"
+                    android:textColor="#404547"
+                    android:textSize="15dp" />
+                <TextView
+                    android:id="@+id/year"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Year :"
+                    android:textColor="#404547"
+                    android:textSize="15dp" />
+                <TextView
+                    android:id="@+id/writer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Writer"
+                    android:textColor="#404547"
+                    android:textSize="15dp" />
+                <TextView
+                    android:id="@+id/director"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Director"
+                    android:textColor="#404547"
+                    android:textSize="15dp" />
+                <TextView
+                    android:id="@+id/actors"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Director"
+                    android:textColor="#404547"
+                    android:textSize="17dp" />
+                <TextView
+                    android:id="@+id/genre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Director"
+                    android:textColor="#404547"
+                    android:textSize="18dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="View on Browser"
+                    android:id="@+id/websiteTextView"
+                    android:drawableLeft="@drawable/ic_open_in_browser_black_24dp"
+                    android:drawablePadding="4dp"
+                    android:textColor="#000000"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center" />
+
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
