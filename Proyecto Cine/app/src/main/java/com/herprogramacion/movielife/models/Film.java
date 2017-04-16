@@ -2,10 +2,12 @@ package com.herprogramacion.movielife.models;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcel;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
+@Parcel
 public class Film implements Serializable {
     private String imdbID;
     private String director;

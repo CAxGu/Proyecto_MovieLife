@@ -17,8 +17,8 @@ import com.herprogramacion.movielife.models.ToDoItem;
 import java.util.HashMap;
 import java.util.Map;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 public class ToDoItemsRecyclerAdapter extends FirebaseRecyclerAdapter<ToDoItem, ToDoItemsRecyclerAdapter.ToDoItemViewHolder> {
 
@@ -47,15 +47,15 @@ public class ToDoItemsRecyclerAdapter extends FirebaseRecyclerAdapter<ToDoItem, 
     }
 
     class ToDoItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
-        @InjectView(R.id.txtItem) TextView txtItem;
-        @InjectView(R.id.txtUser) TextView txtUser;
-        @InjectView(R.id.imgDone) ImageView imgDone;
+        @Bind(R.id.txtItem) TextView txtItem;
+        @Bind(R.id.txtUser) TextView txtUser;
+        @Bind(R.id.imgDone) ImageView imgDone;
 
         public ToDoItemViewHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
             itemView.setOnLongClickListener(this);
-            ButterKnife.inject(this, itemView);
+            ButterKnife.bind(this, itemView);
         }
 
         @Override

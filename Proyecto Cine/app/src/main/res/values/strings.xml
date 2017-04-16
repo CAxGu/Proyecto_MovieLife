@@ -6,8 +6,16 @@
     <string name="action_carrito">Añadir al carrito</string>
     <string name="action_insertar">Insertar</string>
 
+    <string name="item_contenido">Contenido</string>
+    <string name="item_registrarse">Registrarse</string>
+    <string name="item_settings">Otras Opciones</string>
+    <string name="item_registro_mail">Email</string>
+    <string name="item_registro_google">Google+</string>
+    <string name="item_registro_facebook">Facebook</string>
+    <string name="item_registro_twitter">Twitter</string>
     <string name="item_estrenos">Estrenos</string>
     <string name="item_cuenta">Mi Cuenta</string>
+    <string name="item_mas_info">Mas Info.</string>
     <string name="item_mis_favoritos">Mis Favoritos</string>
     <string name="item_configuracion">Configuración</string>
     <string name="item_locate">Cerca de ti</string>

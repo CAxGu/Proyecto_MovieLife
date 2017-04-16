@@ -17,7 +17,7 @@ import com.herprogramacion.movielife.models.Pelis;
 import java.util.List;
 
 /**
- * Adaptador para mostrar las comidas más pedidas en la sección "Inicio"
+ * Adaptador para mostrar las peliculas/series clasificadas
  */
 public class AdaptadorMisFavoritos
         extends RecyclerView.Adapter<AdaptadorMisFavoritos.ViewHolder>implements ItemClickListener {

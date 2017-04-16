@@ -105,6 +105,7 @@ import com.bumptech.glide.Glide;
 import com.herprogramacion.movielife.R;
 import com.herprogramacion.movielife.activities.film.ActividadDetallesPeliSeries;
 import com.herprogramacion.movielife.models.Pelis;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 

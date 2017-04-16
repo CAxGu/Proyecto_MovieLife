@@ -48,7 +48,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
                 .centerCrop()
                 .into(viewHolder.imagen);
         viewHolder.title.setText(item.getTitle());
-        viewHolder.year.setText("$" + item.getTitle());
+        viewHolder.year.setText("" + item.getYear());
     }
 
     public void onItemClick(View view, int position) {

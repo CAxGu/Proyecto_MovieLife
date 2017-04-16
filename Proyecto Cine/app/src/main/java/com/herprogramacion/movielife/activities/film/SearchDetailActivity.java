@@ -5,17 +5,23 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.herprogramacion.movielife.R;
 import com.herprogramacion.movielife.models.Film;
 import com.herprogramacion.movielife.net.PelisClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
+import com.squareup.picasso.Picasso;
 
 import org.apache.http.Header;
 import org.json.JSONException;
@@ -24,7 +30,7 @@ import org.json.JSONObject;
 import java.util.List;
 
 
-public class SearchDetailActivity extends ActionBarActivity implements View.OnClickListener{
+public class SearchDetailActivity extends AppCompatActivity implements View.OnClickListener{
     private static final String EXTRA_POSITION = "search";
     private static List<Film> itemss ;
     private ImageView ivBookCover;
@@ -44,6 +50,7 @@ public class SearchDetailActivity extends ActionBarActivity implements View.OnCl
     private String web;
     private static Film film;
     private RatingBar rating;
+    private FloatingActionButton fab;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,9 +71,8 @@ public class SearchDetailActivity extends ActionBarActivity implements View.OnCl
         year = (TextView) findViewById(R.id.year);
         actors =(TextView) findViewById(R.id.actors);
         genre =(TextView) findViewById(R.id.genre);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
 
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(this);
         mWebsiteLabel.setOnClickListener(this);
 
@@ -82,7 +88,15 @@ public class SearchDetailActivity extends ActionBarActivity implements View.OnCl
                 startActivity(webIntent);
             }
         }
+        if (v == fab) {
+            DatabaseReference FilmsRef = FirebaseDatabase.getInstance().getReference().child("peliculas_favoritas");
+            FilmsRef.push().setValue(film);
+            Snackbar.make(v, "Añadido a Mis Favoritos", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
+        }
+
     }
+
     private void setupViews(List<Film> items, int position) {
         TextView type = (TextView) findViewById(R.id.type);
         TextView title = (TextView) findViewById(R.id.title);
@@ -93,7 +107,7 @@ public class SearchDetailActivity extends ActionBarActivity implements View.OnCl
         setTitle(item.getTitle());
         type.setText(item.getType());
         title.setText(item.getTitle());
-        Glide.with(this).load(item.getPoster()).into(imagen);
+        Picasso.with(this).load(item.getPoster()).into(imagen);
     }
 
     // Populate data for the film

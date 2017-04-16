@@ -14,6 +14,8 @@ import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.herprogramacion.movielife.R;
 import com.herprogramacion.movielife.activities.database.firebase.FireBaseActivity;
@@ -42,7 +44,7 @@ public class ActividadPrincipal extends AppCompatActivity {
         if (navigationView != null) {
             prepararDrawer(navigationView);
             // Seleccionar item por defecto
-            seleccionarItem(navigationView.getMenu().getItem(0));
+            seleccionarItem(navigationView.getMenu().getItem(1));
         }
     }
 
@@ -83,8 +85,11 @@ public class ActividadPrincipal extends AppCompatActivity {
             case R.id.item_cuenta:
                 fragmentoGenerico = new FragmentoCuenta();
                 break;
-            case R.id.item_mis_favoritos:
+            case R.id.item_mas_info:
                 fragmentoGenerico = new FragmentoMisFavoritos();
+                break;
+            case R.id.item_mis_favoritos:
+                startActivity(new Intent(this, SavedFilmsActivity.class));
                 break;
             case R.id.item_configuracion:
                 startActivity(new Intent(this, ActividadConfiguracion.class));
@@ -110,7 +115,7 @@ public class ActividadPrincipal extends AppCompatActivity {
         }
 
         // Setear título actual
-        setTitle(itemDrawer.getTitle());
+            setTitle(itemDrawer.getTitle());
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

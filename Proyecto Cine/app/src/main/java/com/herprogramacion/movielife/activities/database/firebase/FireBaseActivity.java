@@ -21,13 +21,13 @@ import com.herprogramacion.movielife.models.ToDoItem;
 
 import java.util.Random;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
 
 public class FireBaseActivity extends AppCompatActivity {
-    @InjectView(R.id.recycler_view_items) RecyclerView recyclerView;
-    @InjectView(R.id.editTextItem) EditText editTextItem;
+    @Bind(R.id.recycler_view_items) RecyclerView recyclerView;
+    @Bind(R.id.editTextItem) EditText editTextItem;
 
     private DatabaseReference databaseReference;
     private FirebaseRecyclerAdapter adapter;
@@ -36,7 +36,7 @@ public class FireBaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fire_base);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         setToolbar();
 
         setupUsername();

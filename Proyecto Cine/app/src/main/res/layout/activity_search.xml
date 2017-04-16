@@ -19,6 +19,7 @@
         android:indeterminate="true"
         android:max="100"
         android:visibility="gone" />
+
     <FrameLayout
         android:id="@+id/contenedor_peliculas"
         android:layout_width="match_parent"

@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <group android:checkableBehavior="single">
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:id="@+id/grupo_regis">
+        <item
+        android:id="@+id/item_registrarse"
+        android:icon="@drawable/ic_open_in_browser_black_24dp"
+        android:title="@string/item_registrarse"/>
+    </group>
+    <group android:checkableBehavior="single"
+        android:id="@+id/grupo_principal">
         <item
             android:id="@+id/item_estrenos"
             android:checked="true"
@@ -16,25 +23,35 @@
             android:icon="@drawable/searchgrey"
             android:title="@string/item_peliculas" />
         <item
+            android:id="@+id/item_mas_info"
+            android:icon="@drawable/novedad"
+            android:title="@string/item_mas_info" />
+        <item
             android:id="@+id/item_mis_favoritos"
             android:icon="@drawable/fabgrey"
             android:title="@string/item_mis_favoritos" />
         <item
-            android:id="@+id/item_crud"
-            android:icon="@drawable/crud"
-            android:title="@string/item_crud" />
-        <item
-            android:id="@+id/item_crud_firebase"
-            android:icon="@drawable/crud"
-            android:title="@string/item_crud_firebase" />
-        <item
-            android:id="@+id/item_cuenta"
-            android:icon="@drawable/cuenta"
-            android:title="@string/item_cuenta" />
-        <item
-            android:id="@+id/item_configuracion"
-            android:icon="@drawable/configuracion"
-            android:title="@string/item_configuracion" />
+            android:id="@+id/item_otras_opciones"
+            android:title="@string/item_settings">
+            <menu>
+                <item
+                    android:id="@+id/item_cuenta"
+                    android:icon="@drawable/cuenta"
+                    android:title="@string/item_cuenta" />
+                <item
+                    android:id="@+id/item_configuracion"
+                    android:icon="@drawable/configuracion"
+                    android:title="@string/item_configuracion" />
+                <item
+                    android:id="@+id/item_crud"
+                    android:icon="@drawable/crud"
+                    android:title="@string/item_crud" />
+                <item
+                    android:id="@+id/item_crud_firebase"
+                    android:icon="@drawable/crud"
+                    android:title="@string/item_crud_firebase" />
+            </menu>
+        </item>
     </group>
 
 </menu>
