@@ -45,7 +45,7 @@ public class TareasSQLiteActivity extends ListActivity {
             @Override
             public void onClick(View view) {
                 createTodo();
-                Snackbar.make(view, "Item Creado", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, R.string.item_creado, Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });

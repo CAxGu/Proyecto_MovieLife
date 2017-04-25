@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/cinesimagen"
+        android:layout_width="match_parent"
+        android:layout_height="256dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbarCineDetails"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+        <ImageView
+            android:id="@+id/imageViewCine"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:transitionName="shared_image" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/gpsbutton"
+        android:layout_width="@dimen/size_fab"
+        android:layout_height="@dimen/size_fab"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/ic_navigation_white"
+        app:borderWidth="0dp"
+        app:elevation="@dimen/fab_elevation"
+        app:layout_anchor="@id/cinesimagen"
+        app:layout_anchorGravity="bottom|right|end"
+        app:backgroundTint="#D50000"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="25dp"
+        android:paddingRight="8dp"
+        android:text="@string/navigation"
+        android:elevation="@dimen/fab_elevation"
+        app:layout_anchor="@id/gpsbutton"
+        app:layout_anchorGravity="bottom|right|end"
+        android:textColor="@android:color/white"
+        android:shadowColor="@color/black"
+        android:shadowRadius="2"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+
+    <!-- CUERPO DEL DETAILS CINES -->
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/scrollcines"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+
+            <!-- LAYOUT CON NOMBRE, RATING Y TIPO DE CINE-->
+            <RelativeLayout
+                android:id="@+id/datoscine"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="10dp"
+                android:layout_gravity="bottom"
+                android:background="@color/accentColor">
+
+                <TextView
+                    android:id="@+id/nombre_cine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:paddingTop="@dimen/fab_elevation"
+                    android:shadowColor="@color/black"
+                    android:shadowRadius="2"
+                    android:text="NOMBRE DEL CINE"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <RatingBar
+                    android:id="@+id/ratingbar_cine"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/nombre_cine"
+                    android:layout_below="@+id/nombre_cine"
+                    android:layout_gravity="left"
+                    android:isIndicator="false"
+                    android:paddingTop="8dp"
+                    android:shadowColor="@color/black"
+                    android:shadowRadius="1" />
+
+                <TextView
+                    android:id="@+id/type_cine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ratingbar_cine"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:paddingBottom="@dimen/fab_elevation"
+                    android:paddingTop="8dp"
+                    android:shadowColor="@color/black"
+                    android:shadowRadius="1"
+                    android:text="Cine"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+
+            <!-- LAYOUT BOTONES-->
+            <LinearLayout
+                android:id="@+id/botones_cine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+                android:paddingLeft="10dp">
+
+                <LinearLayout
+                    android:id="@+id/BOTON_SAVE"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/rating"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:paddingLeft="1dp">
+
+                    <LinearLayout
+                        android:id="@+id/layout_savecine"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/icono_save"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/star" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/save_case"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/save_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:paddingTop="5dp"
+                            android:text="SAVE"
+                            android:textColor="#D50000"
+                            android:textSize="12dp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/BOTON_streetview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/rating"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:paddingLeft="10dp">
+
+                    <LinearLayout
+                        android:id="@+id/layout_streetviewcine"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/icono_streetview"
+                            android:layout_width="72dp"
+                            android:layout_height="48dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/street" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/streetview_case"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/streetview_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:text="STREETVIEW"
+                            android:textColor="#D50000"
+                            android:paddingTop="5dp"
+                            android:textSize="12dp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- LAYOUT CON DATOS DEL CINE-->
+            <LinearLayout
+                android:id="@+id/cuerpo_informacion"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="10sp"
+                android:paddingRight="10sp">
+
+
+                <!-- LAYOUT DIRECCION-->
+                <LinearLayout
+                    android:id="@+id/case1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/rating"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:paddingTop="10dp">
+
+                    <LinearLayout
+                        android:id="@+id/icono_direccion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/mapmarker" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/info_direccion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/adress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left|center"
+                            android:layout_weight="1"
+                            android:paddingLeft="12dp"
+                            android:text="DIRECCION"
+                            android:textSize="12dp"
+                            android:autoLink="map"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- LAYOUT WEB-->
+                <LinearLayout
+                    android:id="@+id/case2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/rating"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:paddingTop="12sp">
+
+                    <LinearLayout
+                        android:id="@+id/icono_web"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/web" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/web_case"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/web"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left|center"
+                            android:layout_weight="1"
+                            android:paddingLeft="12dp"
+                            android:autoLink="web"
+                            android:text="WEB"
+                            android:textSize="12dp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- LAYOUT TELEFONO-->
+                <LinearLayout
+                    android:id="@+id/case3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/rating"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:paddingTop="12sp">
+
+                    <LinearLayout
+                        android:id="@+id/icono_telf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/phoneforward" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/typeinfo_case"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/telf"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left|center"
+                            android:layout_weight="1"
+                            android:paddingLeft="12dp"
+                            android:autoLink="phone"
+                            android:text="TELEFONO"
+                            android:textSize="12dp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

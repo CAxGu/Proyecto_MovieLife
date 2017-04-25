@@ -1,0 +1,134 @@
+<resources>
+
+    <!-- Settings-->
+    <!-- IDIOMAS -->
+    <string name="Espanol">Spanish</string>
+    <string name="Ingles">English</string>
+
+    <!-- notificaciones via email -->
+    <!--
+    <string name="categoria_notificaciones">Notificaciones</string>
+
+    <string name="titulo_preferencia">Frecuencia de notificaciones por correo</string>
+    <string name="key_preferencia">lista_frecuencias</string>
+    <string-array name="lista_frecuencia">
+        <item>Un correo diario</item>
+        <item>Un correo a la semana</item>
+        <item>Un correo al mes</item>
+        <item>No quiero recibir correos</item>
+    </string-array>
+    <string-array name="lista_valores_frecuencia">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>-->
+
+    <!-- Setting Idiomas -->
+    <string name="categoria_idiomas">Language</string>
+    <string name="titulo_idiomas">Actual Language of the Aplication:</string>
+    <string name="key_Idiomas">frecuency-list</string>
+    <string-array name="lista_idiomas">
+        <item>Español</item>
+        <item>Inglés</item>
+    </string-array>
+    <string-array name="lista_valores_idiomas">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+
+    <!-- RESTO DE LA APP -->
+    <string name="app_name">"MovieLife"</string>
+
+    <!-- Details Cines -->
+    <string name="save_label">Save</string>
+    <string name="type_label">Cinema</string>
+    <string name="navigation">To Navigation</string>
+
+    <!-- Details Peli/Series -->
+    <string name="language_label">Language :</string>
+    <string name="descripcion_label">Storyline :</string>
+    <string name="director_label">Director/s :</string>
+    <string name="writer_label">Writer/s :</string>
+    <string name="actors_label">Actors :</string>
+    <string name="ver_en_weblabel">View on Browser</string>
+
+
+    <!-- Menus -->
+    <string name="item_lang">Languages</string>
+    <string name="item_estrenos">Premiere</string>
+    <string name="item_cuenta">My Account</string>
+    <string name="item_mas_info">More Info.</string>
+    <string name="item_mis_favoritos">My Favourites</string>
+    <string name="item_mis_favoritos_cines">My Favourite Cinemas </string>
+    <string name="item_configuracion">Settings</string>
+    <string name="item_locate">Arround You</string>
+    <string name="item_peliculas">Seek</string>
+    <string name="item_crud">CRUD</string>
+    <string name="item_crud_firebase">FIRE BASE</string>
+    <string name="item_google_maps">Location</string>
+    <string name="item_registrarse">Signing</string>
+    <string name="item_settings">Other Options</string>
+    <string name="item_registro_mail">Email</string>
+    <string name="item_registro_google">Google+</string>
+    <string name="item_registro_facebook">Facebook</string>
+    <string name="item_registro_twitter">Twitter</string>
+
+
+    <!-- Cabeceras -->
+    <string name="titulo_estrenos">Premieres</string>
+    <string name="titulo_tab_peliculas">FILM</string>
+    <string name="titulo_tab_series">SERIES</string>
+    <string name="titulo_tab_perfil">PROFILE</string>
+    <string name="titulo_tab_direcciones">ADRESS</string>
+    <string name="titulo_tab_tarjetas">CARDS</string>
+    <string name="titulo_actividad_configuracion">Settings</string>
+
+
+    <!-- Anotaciones -->
+    <string name="agregado_favoritos">Added to My Favourites</string>
+    <string name="agregado_favoritos_cines">Added to My Favourite Cinemas</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_search">Seek</string>
+    <string name="action_carrito">Add to shopping cart</string>
+    <string name="action_insertar">Insert</string>
+    <string name="texto_no_tarjetas">You dont have any card asociated</string>
+    <string name="etiqueta_user">Carlos Axel</string>
+    <string name="texto_cambiar_contrasena">Change your password</string>
+    <string name="etiqueta_contrasena">Password</string>
+    <string name="etiqueta_info_usuario">Users Information</string>
+    <string name="title_activity_actividad_detalles_inicio">DetailsStartActivity</string>
+    <string name="title_activity_locate">Arround You </string>
+
+    <!-- Lite Mode -->
+    <string name="lite_demo_label">Arround You</string>
+    <string name="lite_demo_description">Demonstrates some features on a map in lite mode.</string>
+    <string name="lite_demo_intro">Click the map with no, one or multiple markers displayed to open the Google Maps Mobile app.</string>
+    <string name="lite_go_to_darwin">Go to Ontinyent (No Markers)</string>
+    <string name="lite_go_to_adelaide">Go to Fontanars (One Marker)</string>
+    <string name="lite_go_to_australia">Go to C.Valenciana (Four Markers)</string>
+    <string name="lite_list_demo_label">Lite Mode ListView</string>
+    <string name="lite_list_demo_description">Demonstrates using maps in lite mode in a ListView.</string>
+
+
+    <!--SQLITE -->
+    <string name="hello">Hello World, TareasSQLiteActivity!</string>
+    <string name="menu_insert">Add task</string>
+    <string name="menu_delete">Delete</string>
+    <string name="todo_summary">Name</string>
+    <string name="todo_description">Delete</string>
+    <string name="todo_edit_summary">Name</string>
+    <string name="todo_edit_description">Description</string>
+    <string name="todo_edit_confirm">Accept</string>
+    <string name="no_todos">No elements on this list</string>
+    <string name="item_creado">Item Created"</string>
+    <color name="listcolor">#94A65D</color>
+    <color name="black">#000000</color>
+
+    <!-- FIREBASE -->
+    <string name="main.message.addelement">Add new element</string>
+    <string name="Alta">Admission OK</string>
+
+</resources>
+

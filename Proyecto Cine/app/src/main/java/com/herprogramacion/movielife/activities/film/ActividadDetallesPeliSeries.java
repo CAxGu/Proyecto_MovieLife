@@ -105,6 +105,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.NavUtils;
 import android.support.v4.app.TaskStackBuilder;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -129,7 +130,12 @@ public class ActividadDetallesPeliSeries extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actividad_detalles_peliseries);
 
-        setToolbar();
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_detallespeliseries);
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            ActionBar actionBar = getSupportActionBar();
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
         int position = getIntent().getIntExtra(EXTRA_POSITION, -1);
         setupViews(itemss,position);

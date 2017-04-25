@@ -12,11 +12,14 @@
         android:background="@color/accentColor"
         android:gravity="center"
         android:padding="8dp"
+        android:shadowColor="#8a6603"
+        android:shadowDx="3"
+        android:shadowDy="5"
+        android:shadowRadius="5"
         android:text="@string/titulo_estrenos"
-        android:textStyle="bold"
-        android:shadowDx="3" android:shadowDy="5" android:shadowRadius="5"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/color_light" android:shadowColor="#8a6603" />
+        android:textColor="@color/color_light"
+        android:textStyle="bold" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/reciclador"

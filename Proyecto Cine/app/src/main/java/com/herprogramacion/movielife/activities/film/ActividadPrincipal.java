@@ -1,6 +1,11 @@
 package com.herprogramacion.movielife.activities.film;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -12,6 +17,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,22 +27,34 @@ import com.herprogramacion.movielife.R;
 import com.herprogramacion.movielife.activities.database.firebase.FireBaseActivity;
 import com.herprogramacion.movielife.activities.database.sqlite.TareasSQLiteActivity;
 import com.herprogramacion.movielife.activities.maps.LocationActivity;
+import com.herprogramacion.movielife.fragments.FragmentCines;
 import com.herprogramacion.movielife.fragments.FragmentoCuenta;
 import com.herprogramacion.movielife.fragments.FragmentoMisFavoritos;
 import com.herprogramacion.movielife.fragments.FragmentoPeliSeries;
+
+import java.util.Locale;
 
 public class ActividadPrincipal extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
     public static String search;
-    public static final String   BOOK_DETAIL_KEY = "book";
+    public static final String BOOK_DETAIL_KEY = "book";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actividad_principal);
 
-        agregarToolbar();
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        if (getSupportActionBar() != null) {
+            ActionBar actionBar = getSupportActionBar();
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setHomeAsUpIndicator(R.drawable.drawer_toggle);
+            actionBar.setTitle(getString(R.string.app_name));
+        }
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -45,17 +63,6 @@ public class ActividadPrincipal extends AppCompatActivity {
             prepararDrawer(navigationView);
             // Seleccionar item por defecto
             seleccionarItem(navigationView.getMenu().getItem(1));
-        }
-    }
-
-    private void agregarToolbar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        final ActionBar ab = getSupportActionBar();
-        if (ab != null) {
-            // Poner ícono del drawer toggle
-            ab.setHomeAsUpIndicator(R.drawable.drawer_toggle);
-            ab.setDisplayHomeAsUpEnabled(true);
         }
 
     }
@@ -91,11 +98,14 @@ public class ActividadPrincipal extends AppCompatActivity {
             case R.id.item_mis_favoritos:
                 startActivity(new Intent(this, SavedFilmsActivity.class));
                 break;
+            case R.id.item_mis_favoritos_cines:
+                startActivity(new Intent(this, SavedCinesActivity.class));
+                break;
             case R.id.item_configuracion:
                 startActivity(new Intent(this, ActividadConfiguracion.class));
                 break;
             case R.id.item_locate:
-                startActivity(new Intent(this, LocationActivity.class));
+                fragmentoGenerico = new FragmentCines();
                 break;
             case R.id.item_peliculas:
                 startActivity(new Intent(this, Search_Activity.class));
@@ -106,6 +116,15 @@ public class ActividadPrincipal extends AppCompatActivity {
             case R.id.item_crud_firebase:
                 startActivity(new Intent(this, FireBaseActivity.class));
                 break;
+            case R.id.item_google_maps:
+                startActivity(new Intent(this, LocationActivity.class));
+                break;
+            case R.id.en:
+                change_lang("en");
+                break;
+            case R.id.es:
+                change_lang("es");
+                break;
         }
         if (fragmentoGenerico != null) {
             fragmentManager
@@ -115,7 +134,7 @@ public class ActividadPrincipal extends AppCompatActivity {
         }
 
         // Setear título actual
-            setTitle(itemDrawer.getTitle());
+        setTitle(itemDrawer.getTitle());
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -127,8 +146,8 @@ public class ActividadPrincipal extends AppCompatActivity {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 // Fetch the data remotely
-                if(query != null) {
-                    search=query;
+                if (query != null) {
+                    search = query;
                     // Reset SearchView
                     searchView.clearFocus();
                     searchView.setQuery("", false);
@@ -136,7 +155,7 @@ public class ActividadPrincipal extends AppCompatActivity {
                     searchItem.collapseActionView();
                     startactividad();
                     return true;
-                }else
+                } else
                     return false;
             }
 
@@ -148,7 +167,8 @@ public class ActividadPrincipal extends AppCompatActivity {
 
         return true;
     }
-    public void startactividad(){
+
+    public void startactividad() {
         startActivity(new Intent(this, Search_Activity.class));
     }
 
@@ -161,4 +181,40 @@ public class ActividadPrincipal extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-}
+
+    private void change_lang(String lang) {
+        Locale locale = new Locale(lang);
+        Locale.setDefault(locale);
+        //String lang_default = Locale.getDefault().getLanguage();
+        //Toast toast1 = Toast.makeText(getApplicationContext(), lang_default, Toast.LENGTH_SHORT);
+        //toast1.show();
+
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getApplicationContext().getResources().updateConfiguration(config, null);
+        //getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+
+       finish();
+       Intent refresh = new Intent(this, ActividadPrincipal.class);
+       startActivity(refresh);
+    }
+
+    public void loadLocale() {
+        String langPref = "Language";
+        SharedPreferences prefs = getSharedPreferences("CommonPrefs",
+                Activity.MODE_PRIVATE);
+        String language = prefs.getString(langPref, "");
+        change_lang(language);
+    }
+
+
+    public void saveLocale(String lang) {
+        String langPref = "Language";
+        SharedPreferences prefs = getSharedPreferences("CommonPrefs",
+                Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(langPref, lang);
+        editor.commit();
+    }
+
+    }

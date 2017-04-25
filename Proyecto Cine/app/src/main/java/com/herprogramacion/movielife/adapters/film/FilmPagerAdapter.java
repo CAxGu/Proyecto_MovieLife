@@ -1,12 +1,12 @@
 package com.herprogramacion.movielife.adapters.film;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+        import android.support.v4.app.Fragment;
+        import android.support.v4.app.FragmentManager;
+        import android.support.v4.app.FragmentPagerAdapter;
 
-import com.herprogramacion.movielife.fragments.FilmsDetailFragment;
-import com.herprogramacion.movielife.models.Film;
+        import com.herprogramacion.movielife.fragments.FilmsDetailFragment;
+        import com.herprogramacion.movielife.models.Film;
 
-import java.util.ArrayList;
+        import java.util.ArrayList;
 
 public class FilmPagerAdapter extends FragmentPagerAdapter {
     private ArrayList<Film> mFilms;

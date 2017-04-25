@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/site_image_size"
+    android:layout_margin="@dimen/cardview_margin"
+    card_view:cardElevation="@dimen/cardview_default_elevation"
+    card_view:cardCornerRadius="@dimen/cardview_radius">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/cine_image"
+            android:layout_width="@dimen/site_image_size"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            tools:src="@android:drawable/ic_menu_report_image" />
+
+        <TextView
+            android:id="@+id/cine_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:layout_toEndOf="@id/cine_image"
+            android:layout_toLeftOf="@+id/cine_icon"
+            android:layout_toRightOf="@id/cine_image"
+            android:layout_toStartOf="@+id/cine_icon"
+            android:textSize="@dimen/text_header"
+            android:textStyle="bold"
+            tools:text="Cines Pepito" />
+
+        <TextView
+            android:id="@+id/cine_extradata"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cine_name"
+            android:layout_margin="@dimen/text_margin"
+            android:layout_toEndOf="@id/cine_image"
+            android:layout_toRightOf="@id/cine_image"
+            android:ellipsize="end"
+            android:maxLines="3"
+            tools:text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat" />
+
+        <ImageView
+            android:id="@+id/cine_icon"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="@dimen/text_margin"
+            android:layout_marginRight="@dimen/text_margin"
+            tools:src="@drawable/filmstrip" />
+
+    </RelativeLayout>
+
+
+</android.support.v7.widget.CardView>

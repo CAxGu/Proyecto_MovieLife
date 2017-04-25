@@ -30,9 +30,9 @@ import org.json.JSONObject;
 import java.util.List;
 
 
-public class SearchDetailActivity extends AppCompatActivity implements View.OnClickListener{
-    private static final String EXTRA_POSITION = "search";
-    private static List<Film> itemss ;
+public class SearchDetailActivity extends AppCompatActivity implements View.OnClickListener {
+    private static final String EXTRA_POSITION = "";
+    private static List<Film> itemss;
     private ImageView ivBookCover;
     private TextView tvTitle;
     private TextView tvAuthor;
@@ -51,13 +51,14 @@ public class SearchDetailActivity extends AppCompatActivity implements View.OnCl
     private static Film film;
     private RatingBar rating;
     private FloatingActionButton fab;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         loadFilm(film);
         int position = getIntent().getIntExtra(EXTRA_POSITION, -1);
-        setupViews(itemss,position);
+        setupViews(itemss, position);
 
 
         tvTitle = (TextView) findViewById(R.id.type);
@@ -69,8 +70,8 @@ public class SearchDetailActivity extends AppCompatActivity implements View.OnCl
         director = (TextView) findViewById(R.id.director);
         writer = (TextView) findViewById(R.id.writer);
         year = (TextView) findViewById(R.id.year);
-        actors =(TextView) findViewById(R.id.actors);
-        genre =(TextView) findViewById(R.id.genre);
+        actors = (TextView) findViewById(R.id.actors);
+        genre = (TextView) findViewById(R.id.genre);
         fab = (FloatingActionButton) findViewById(R.id.fab);
 
         fab.setOnClickListener(this);
@@ -83,15 +84,16 @@ public class SearchDetailActivity extends AppCompatActivity implements View.OnCl
             try {
                 Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(film.getWeb()));
                 startActivity(webIntent);
-            }catch (Exception web){
-                Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://duckduckgo.com/?q="+ film.getTitle()));
+            } catch (Exception web) {
+                Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://duckduckgo.com/?q=" + film.getTitle()));
                 startActivity(webIntent);
             }
         }
         if (v == fab) {
             DatabaseReference FilmsRef = FirebaseDatabase.getInstance().getReference().child("peliculas_favoritas");
-            FilmsRef.push().setValue(film);
-            Snackbar.make(v, "Añadido a Mis Favoritos", Snackbar.LENGTH_LONG)
+            String FilmsID = FilmsRef.push().getKey();
+            FilmsRef.child(FilmsID.replace(FilmsID, String.valueOf(film.getImdbID()))).setValue(film);
+            Snackbar.make(v, R.string.agregado_favoritos, Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
         }
 
@@ -122,35 +124,35 @@ public class SearchDetailActivity extends AppCompatActivity implements View.OnCl
                         SearchDetailActivity.film.setWeb(response.getString("Website"));
                     if (response.has("Director")) {
                         SearchDetailActivity.film.setDirector(response.getString("Director"));
-                        director.setText("Director : "+ SearchDetailActivity.film.getDirector());
+                        director.setText(SearchDetailActivity.film.getDirector());
                     }
-                    if (response.has("Writer")){
+                    if (response.has("Writer")) {
                         SearchDetailActivity.film.setWriter(response.getString("Writer"));
-                        writer.setText("Writer : "+ SearchDetailActivity.film.getWriter());
-                }
+                        writer.setText(SearchDetailActivity.film.getWriter());
+                    }
                     if (response.has("Actors")) {
                         SearchDetailActivity.film.setActors(response.getString("Actors"));
-                        actors.setText("Actors : "+ SearchDetailActivity.film.getActors());
+                        actors.setText(SearchDetailActivity.film.getActors());
                     }
                     if (response.has("Plot")) {
                         SearchDetailActivity.film.setPlot(response.getString("Plot"));
                         description.setText(SearchDetailActivity.film.getPlot());
                     }
-                    if (response.has("imdbRating")){
+                    if (response.has("imdbRating")) {
                         SearchDetailActivity.film.setRated(response.getDouble("imdbRating"));
                         rating.setRating((float) SearchDetailActivity.film.getRated());
                     }
-                    if (response.has("Year")){
+                    if (response.has("Year")) {
                         SearchDetailActivity.film.setYear(response.getString("Year"));
-                        year.setText("Year : "+ SearchDetailActivity.film.getYear());
+                        year.setText(SearchDetailActivity.film.getYear());
                     }
-                    if (response.has("Language")){
+                    if (response.has("Language")) {
                         SearchDetailActivity.film.setLanguage(response.getString("Language"));
-                        lang.setText("Year : "+ SearchDetailActivity.film.getLanguage());
+                        lang.setText(SearchDetailActivity.film.getLanguage());
                     }
-                    if (response.has("Genre")){
+                    if (response.has("Genre")) {
                         SearchDetailActivity.film.setGenre(response.getString("Genre"));
-                        genre.setText("Genre : "+ SearchDetailActivity.film.getGenre());
+                        genre.setText(SearchDetailActivity.film.getGenre());
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -158,10 +160,11 @@ public class SearchDetailActivity extends AppCompatActivity implements View.OnCl
             }
         });
     }
-    public  static void launch(Activity context, int position, List<Film> items){
-        Intent intent = new Intent(context,SearchDetailActivity.class);
-        intent.putExtra(EXTRA_POSITION,position);
-        itemss=items;
+
+    public static void launch(Activity context, int position, List<Film> items) {
+        Intent intent = new Intent(context, SearchDetailActivity.class);
+        intent.putExtra(EXTRA_POSITION, position);
+        itemss = items;
         film = items.get(position);
         context.startActivity(intent);
     }

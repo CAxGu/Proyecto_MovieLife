@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.herprogramacion.movielife.R;
+import com.herprogramacion.movielife.activities.film.ActividadPrincipal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +35,7 @@ public class FragmentoCuenta extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragmento_paginado, container, false);
 
         if (savedInstanceState == null) {

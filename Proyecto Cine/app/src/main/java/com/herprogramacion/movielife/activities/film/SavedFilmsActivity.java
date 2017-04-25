@@ -1,17 +1,16 @@
 package com.herprogramacion.movielife.activities.film;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.test.ServiceTestCase;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.herprogramacion.movielife.R;
-import com.herprogramacion.movielife.adapters.film.FireBaseFilmsViewHolder;
+import com.herprogramacion.movielife.adapters.database.firebase.FireBaseFilmsViewHolder;
 import com.herprogramacion.movielife.models.Film;
 
 import butterknife.Bind;
@@ -30,17 +29,16 @@ public class SavedFilmsActivity extends AppCompatActivity {
         setContentView(R.layout.fragment_group_search);
         ButterKnife.bind(this);
 
-        setToolbar();
-        
-        mFilmsReference = FirebaseDatabase.getInstance().getReference().child("peliculas_favoritas");
-        setUpFirebaseAdapter();
-    }
-
-    private void setToolbar(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        if(getSupportActionBar()!=null)// Habilitar Up Button
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        if (getSupportActionBar() != null) {
+            ActionBar actionBar = getSupportActionBar();
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
+
+        mFilmsReference = FirebaseDatabase.getInstance().getReference().child("peliculas_favoritas");
+        setUpFirebaseAdapter();
     }
 
     private void setUpFirebaseAdapter() {

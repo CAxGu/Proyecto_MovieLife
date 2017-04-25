@@ -109,9 +109,6 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-/**
- * Adaptador para mostrar las comidas más pedidas en la sección "Inicio"
- */
 public class AdaptadorPeliSeries
         extends RecyclerView.Adapter<AdaptadorPeliSeries.ViewHolder>implements ItemClickListener {
 

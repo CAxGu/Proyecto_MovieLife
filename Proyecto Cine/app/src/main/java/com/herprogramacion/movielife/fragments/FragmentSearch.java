@@ -16,7 +16,6 @@ import static com.herprogramacion.movielife.activities.film.Search_Activity.booc
 
 
 public class FragmentSearch extends Fragment {
-  //  private static final String INDICE_SECCION = "com.restaurantericoparico.FragmentoCategoriasTab.extra.INDICE_SECCION";
     private RecyclerView reciclador;
     private GridLayoutManager layoutManager;
     private SearchAdapter adaptador;

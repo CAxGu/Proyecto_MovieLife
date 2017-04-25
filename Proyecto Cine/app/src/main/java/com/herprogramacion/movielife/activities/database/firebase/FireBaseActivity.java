@@ -86,7 +86,7 @@ public class FireBaseActivity extends AppCompatActivity {
             databaseReference.child(itemText.trim()).setValue(toDoItem,new DatabaseReference.CompletionListener(){
                 public void onComplete(DatabaseError error, DatabaseReference ref) {
                     if(error == null)
-                        Toast.makeText(getApplicationContext(), "Alta OK", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), R.string.Alta, Toast.LENGTH_SHORT).show();
                     else
                         Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
                 }

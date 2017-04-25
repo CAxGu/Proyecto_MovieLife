@@ -1,15 +1,15 @@
 package com.herprogramacion.movielife.fragments;
 
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+        import android.os.Bundle;
+        import android.support.v4.app.Fragment;
+        import android.support.v7.widget.LinearLayoutManager;
+        import android.support.v7.widget.RecyclerView;
+        import android.view.LayoutInflater;
+        import android.view.View;
+        import android.view.ViewGroup;
 
-import com.herprogramacion.movielife.R;
-import com.herprogramacion.movielife.adapters.film.AdaptadorPeliSeries;
+        import com.herprogramacion.movielife.R;
+        import com.herprogramacion.movielife.adapters.film.AdaptadorPeliSeries;
 
 /**
  * Fragmento para la sección de "Inicio"

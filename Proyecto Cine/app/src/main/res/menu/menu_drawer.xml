@@ -7,29 +7,38 @@
         android:icon="@drawable/ic_open_in_browser_black_24dp"
         android:title="@string/item_registrarse"/>
     </group>
-    <group android:checkableBehavior="single"
-        android:id="@+id/grupo_principal">
+    <group
+        android:id="@+id/grupo_principal"
+        android:checkableBehavior="single">
         <item
             android:id="@+id/item_estrenos"
             android:checked="true"
             android:icon="@drawable/newgrey"
             android:title="@string/item_estrenos" />
         <item
-            android:id="@+id/item_locate"
-            android:icon="@drawable/cerca"
-            android:title="@string/item_locate" />
-        <item
             android:id="@+id/item_peliculas"
             android:icon="@drawable/searchgrey"
             android:title="@string/item_peliculas" />
         <item
-            android:id="@+id/item_mas_info"
-            android:icon="@drawable/novedad"
-            android:title="@string/item_mas_info" />
+            android:id="@+id/item_google_maps"
+            android:icon="@drawable/ic_google_maps_grey"
+            android:title="@string/item_google_maps" />
+        <item
+            android:id="@+id/item_locate"
+            android:icon="@drawable/cerca"
+            android:title="@string/item_locate" />
         <item
             android:id="@+id/item_mis_favoritos"
             android:icon="@drawable/fabgrey"
             android:title="@string/item_mis_favoritos" />
+        <item
+            android:id="@+id/item_mis_favoritos_cines"
+            android:icon="@drawable/fabgrey"
+            android:title="@string/item_mis_favoritos_cines" />
+        <item
+            android:id="@+id/item_mas_info"
+            android:icon="@drawable/novedad"
+            android:title="@string/item_mas_info" />
         <item
             android:id="@+id/item_otras_opciones"
             android:title="@string/item_settings">
@@ -50,6 +59,16 @@
                     android:id="@+id/item_crud_firebase"
                     android:icon="@drawable/crud"
                     android:title="@string/item_crud_firebase" />
+            </menu>
+        </item>
+        <item android:title="@string/item_lang">
+            <menu>
+                <item
+                    android:id="@+id/en"
+                    android:title="@string/Ingles"/>
+                <item
+                    android:id="@+id/es"
+                    android:title="@string/Espanol"/>
             </menu>
         </item>
     </group>

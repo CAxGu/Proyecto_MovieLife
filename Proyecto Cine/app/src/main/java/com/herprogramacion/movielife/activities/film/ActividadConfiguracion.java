@@ -23,17 +23,17 @@ public class ActividadConfiguracion extends AppCompatActivity {
         ft.add(R.id.contenedor_configuracion, new FragmentoConfiguracion());
         ft.commit();
 
-        agregarToolbar();
-    }
-
-    private void agregarToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_configuracion);
         setSupportActionBar(toolbar);
-        final ActionBar ab = getSupportActionBar();
-        if (ab != null) {
-            ab.setDisplayHomeAsUpEnabled(true);
+        if (getSupportActionBar() != null) {
+            ActionBar actionBar = getSupportActionBar();
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setHomeAsUpIndicator(R.drawable.drawer_toggle);
+            actionBar.setTitle(getString(R.string.titulo_actividad_configuracion));
         }
+
     }
+
 
     public static class FragmentoConfiguracion extends PreferenceFragment {
 

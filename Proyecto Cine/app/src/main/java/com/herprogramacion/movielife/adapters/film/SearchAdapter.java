@@ -19,7 +19,7 @@ import java.util.List;
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder> implements ItemClickListener {
 
     private final Context context;
-    private final List<Film> items;
+    public final List<Film> items;
 
     public SearchAdapter(Context context, List<Film> items) {
         this.context = context;

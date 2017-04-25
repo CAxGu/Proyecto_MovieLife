@@ -9,6 +9,9 @@
     -->
 
 
+    <!-- Permisos Llamadas -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
     <!-- Permisos MAPS -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
@@ -37,7 +40,9 @@
             android:name="com.herprogramacion.movielife.activities.film.ActividadPrincipal"
             android:label="@string/app_name"
             android:theme="@style/Theme.ConNavigationDrawer">
+
         </activity>
+
         <activity
             android:name="com.herprogramacion.movielife.activities.film.ActividadConfiguracion"
             android:label="@string/titulo_actividad_configuracion"
@@ -46,6 +51,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.herprogramacion.movielife.activities.film.ActividadPrincipal" />
         </activity>
+
         <activity
             android:name="com.herprogramacion.movielife.activities.film.ActividadDetallesPeliSeries"
             android:label="@string/title_activity_actividad_detalles_inicio"
@@ -54,50 +60,72 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.herprogramacion.movielife.activities.film.ActividadPrincipal" />
         </activity>
+
         <activity
             android:name="com.herprogramacion.movielife.activities.maps.LocationActivity"
             android:label="@string/item_locate"
             android:parentActivityName="com.herprogramacion.movielife.activities.film.ActividadPrincipal">
             <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.herprogramacion.movielife.activities.film.ActividadPrincipal" />
-        </activity>
-        <activity
-        android:name="com.herprogramacion.movielife.activities.film.Search_Activity"
-        android:label="@string/item_peliculas">
-        <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value="com.herprogramacion.movielife.activities.film.ActividadPrincipal" />
         </activity>
+
+        <activity
+            android:name="com.herprogramacion.movielife.activities.film.Search_Activity"
+            android:label="@string/item_peliculas">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.herprogramacion.movielife.activities.film.ActividadPrincipal" />
+        </activity>
+
         <activity
             android:name="com.herprogramacion.movielife.activities.film.SearchDetailActivity"
             android:label="@string/item_peliculas"
             android:parentActivityName="com.herprogramacion.movielife.activities.film.Search_Activity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.herprogramacion.movielife.activities.film.Search_Activity"/>
+                android:value="com.herprogramacion.movielife.activities.film.Search_Activity" />
         </activity>
+
         <activity
             android:name="com.herprogramacion.movielife.activities.database.sqlite.TareasSQLiteActivity"
-            android:label="@string/app_name"/>
+            android:label="@string/app_name" />
+
         <activity
             android:name="com.herprogramacion.movielife.activities.database.sqlite.Details"
-            android:windowSoftInputMode="stateVisible|adjustResize"/>
-        <activity android:name="com.herprogramacion.movielife.activities.database.firebase.FireBaseActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+
+        <activity
+            android:name="com.herprogramacion.movielife.activities.database.firebase.FireBaseActivity"
             android:parentActivityName="com.herprogramacion.movielife.activities.film.ActividadPrincipal">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.herprogramacion.movielife.activities.film.ActividadPrincipal" />
         </activity>
-        <activity android:name=".activities.film.FilmsDetailActivity"></activity>
-        <activity android:name=".activities.film.SavedFilmsActivity"></activity>
-        <activity android:name=".activities.film.SplashActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-            </activity>
+        <activity android:name=".activities.film.FilmsDetailActivity">
+
+        </activity>
+
+        <activity android:name=".activities.film.SavedFilmsActivity">
+
+        </activity>
+
+        <activity android:name=".activities.film.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".activities.film.CinesDetailsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.herprogramacion.movielife.activities.film.ActividadPrincipal" />
+        </activity>
+
+        <activity android:name=".activities.film.SavedCinesActivity"></activity>
+        <activity android:name=".activities.maps.StreetViewActivity"></activity>
     </application>
 
 </manifest>

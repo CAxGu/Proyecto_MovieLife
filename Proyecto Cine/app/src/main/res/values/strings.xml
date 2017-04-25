@@ -1,41 +1,100 @@
 <resources>
+
+    <!-- Settings-->
+    <!-- IDIOMAS -->
+    <string name="Espanol">Español</string>
+    <string name="Ingles">Ingles</string>
+
+    <!-- notificaciones via email -->
+    <!--
+    <string name="categoria_notificaciones">Notificaciones</string>
+
+    <string name="titulo_preferencia">Frecuencia de notificaciones por correo</string>
+    <string name="key_preferencia">lista_frecuencias</string>
+    <string-array name="lista_frecuencia">
+        <item>Un correo diario</item>
+        <item>Un correo a la semana</item>
+        <item>Un correo al mes</item>
+        <item>No quiero recibir correos</item>
+    </string-array>
+    <string-array name="lista_valores_frecuencia">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>-->
+
+    <!-- Setting Idiomas -->
+    <string name="categoria_idiomas">Idioma</string>
+    <string name="titulo_idiomas">Idioma actual de la aplicación:</string>
+    <string name="key_Idiomas">lista_frecuencias</string>
+    <string-array name="lista_idiomas">
+        <item>Español</item>
+        <item>Inglés</item>
+    </string-array>
+    <string-array name="lista_valores_idiomas">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+
+    <!-- RESTO DE LA APP -->
     <string name="app_name">"MovieLife"</string>
 
-    <string name="action_settings">Configuración</string>
-    <string name="action_search">Buscar</string>
-    <string name="action_carrito">Añadir al carrito</string>
-    <string name="action_insertar">Insertar</string>
+    <!-- Details Cines -->
+    <string name="save_label">Guardar</string>
+    <string name="type_label">Cine</string>
+    <string name="navigation">Cómo llegar</string>
 
-    <string name="item_contenido">Contenido</string>
+    <!-- Details Peli/Series -->
+    <string name="language_label">Idioma :</string>
+    <string name="descripcion_label">Argumento :</string>
+    <string name="director_label">Director/es :</string>
+    <string name="writer_label">Escritor/es :</string>
+    <string name="actors_label">Actores :</string>
+    <string name="ver_en_weblabel">Ver en el Navegador</string>
+
+
+    <!-- Menus -->
+    <string name="item_lang">Idiomas</string>
+    <string name="item_estrenos">Estrenos</string>
+    <string name="item_cuenta">Mi Cuenta</string>
+    <string name="item_mas_info">Mas Info.</string>
+    <string name="item_mis_favoritos">Mis Favoritos</string>
+    <string name="item_mis_favoritos_cines">Mis Cines Favoritos </string>
+    <string name="item_configuracion">Configuración</string>
+    <string name="item_locate">Cerca de ti</string>
+    <string name="item_peliculas">Buscar</string>
+    <string name="item_crud">CRUD</string>
+    <string name="item_crud_firebase">FIRE BASE</string>
+    <string name="item_google_maps">Sitúate</string>
     <string name="item_registrarse">Registrarse</string>
     <string name="item_settings">Otras Opciones</string>
     <string name="item_registro_mail">Email</string>
     <string name="item_registro_google">Google+</string>
     <string name="item_registro_facebook">Facebook</string>
     <string name="item_registro_twitter">Twitter</string>
-    <string name="item_estrenos">Estrenos</string>
-    <string name="item_cuenta">Mi Cuenta</string>
-    <string name="item_mas_info">Mas Info.</string>
-    <string name="item_mis_favoritos">Mis Favoritos</string>
-    <string name="item_configuracion">Configuración</string>
-    <string name="item_locate">Cerca de ti</string>
-    <string name="item_peliculas">Buscar</string>
-    <string name="item_crud">CRUD</string>
-    <string name="item_crud_firebase">FIRE BASE</string>
 
+
+    <!-- Cabeceras -->
     <string name="titulo_estrenos">Estrenos</string>
-
     <string name="titulo_tab_peliculas">PELICULAS</string>
     <string name="titulo_tab_series">SERIES</string>
-
     <string name="titulo_tab_perfil">PERFIL</string>
     <string name="titulo_tab_direcciones">DIRECCIONES</string>
     <string name="titulo_tab_tarjetas">TARJETAS</string>
+    <string name="titulo_actividad_configuracion">Configuración</string>
 
+
+    <!-- Anotaciones -->
+    <string name="agregado_favoritos">Agregado a Mis Favoritos</string>
+    <string name="agregado_favoritos_cines">Agregado a Mis Cines Favoritos</string>
+    <string name="action_settings">Configuración</string>
+    <string name="action_search">Buscar</string>
+    <string name="action_carrito">Añadir al carrito</string>
+    <string name="action_insertar">Insertar</string>
     <string name="texto_no_tarjetas">No tienes ninguna tarjeta asociada</string>
-
     <string name="etiqueta_user">Carlos Axel</string>
-
     <string name="texto_cambiar_contrasena">Cambia tu contraseña</string>
     <string name="etiqueta_contrasena">Contraseña</string>
     <string name="etiqueta_info_usuario">Información del usuario</string>
@@ -54,7 +113,7 @@
 
 
     <!--SQLITE -->
-    <string name="hello">Hello World, TareasSQLiteActivity!</string>
+    <string name="hello">Hola Mundo, TareasSQLiteActivity!</string>
     <string name="menu_insert">Agregar tarea</string>
     <string name="menu_delete">Borrar</string>
     <string name="todo_summary">Nombre</string>
@@ -63,9 +122,13 @@
     <string name="todo_edit_description">Descripción</string>
     <string name="todo_edit_confirm">Aceptar</string>
     <string name="no_todos">Aún no existen elementos en la lista.</string>
+    <string name="item_creado">Item Creado"</string>
     <color name="listcolor">#94A65D</color>
     <color name="black">#000000</color>
 
     <!-- FIREBASE -->
     <string name="main.message.addelement">Agregar un elemento nuevo</string>
+    <string name="Alta">Alta OK</string>
+
 </resources>
+

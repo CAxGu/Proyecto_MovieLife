@@ -38,54 +38,12 @@
 
     </android.support.design.widget.AppBarLayout>
 
-
-    <!-- Change the camera of the map to show no markers -->
-    <Button
-        android:id="@+id/go_to_darwin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="showOntinyent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/appbar"
-        android:text="@string/lite_go_to_darwin" />
-
-    <!-- Change the camera of the map to show one marker -->
-    <Button
-        android:id="@+id/go_to_adelaide"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="showFontanars"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/go_to_darwin"
-        android:layout_toEndOf="@+id/go_to_australia"
-        android:layout_toRightOf="@+id/go_to_australia"
-        android:text="@string/lite_go_to_adelaide" />
-
-    <!-- Change the camera of the map to show multiple markers -->
-    <Button
-        android:id="@+id/go_to_australia"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="showCVAlenciana"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/go_to_adelaide"
-        android:layout_toEndOf="@+id/go_to_darwin"
-        android:layout_toRightOf="@+id/go_to_darwin"
-        android:text="@string/lite_go_to_australia" />
-
-
     <!-- MapFragment with lite mode enabled -->
     <fragment
         android:id="@+id/map"
         class="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@id/go_to_australia"
-        map:liteMode="true" />
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>
 
