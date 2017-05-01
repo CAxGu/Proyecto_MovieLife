@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ActividadPrincipal">
+    <item
+        android:id="@+id/action_logout"
+        android:orderInCategory="100"
+        android:title="Salir"
+        android:onClick="singout"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/busqueda"
+        android:orderInCategory="1"
+        android:title="@string/action_carrito"
+        app:showAsAction="ifRoom|collapseActionView"
+        app:actionViewClass="android.support.v7.widget.SearchView"/>
+</menu>

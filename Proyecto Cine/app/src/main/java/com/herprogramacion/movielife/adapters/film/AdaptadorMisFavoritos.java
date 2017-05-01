@@ -56,7 +56,7 @@ public class AdaptadorMisFavoritos
 
     public void onItemClick(View view, int position) {
         // Imagen a compartir entre transiciones
-        View sharedImage = view.findViewById(R.id.imageView);
+        View sharedImage = view.findViewById(R.id.cine_image);
         ActividadDetallesPeliSeries.launch((Activity) context, position, sharedImage,items);
     }
 

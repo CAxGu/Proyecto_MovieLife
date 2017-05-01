@@ -107,6 +107,24 @@ public class Film implements Serializable {
         return title;
     }
 
+    public Film(){
+
+    }
+    public Film(String imdbID, String plot, String director, String writer, String actors, String title, double rated, String year, String type, String web, String genre, String language, String Poster){
+        this.imdbID = imdbID;
+        this.plot = plot;
+        this.director = director;
+        this.writer = writer;
+        this.actors = actors;
+        this.title = title;
+        this.rated = rated;
+        this.year = year;
+        this.type = type;
+        this.web = web;
+        this.genre = genre;
+        this.language = language;
+        this.Poster = Poster;
+    }
 
     // Returns a Film given the expected JSON
     public static Film fromJson(JSONObject jsonObject) {
@@ -155,5 +173,24 @@ public class Film implements Serializable {
             }
         }
         return films;
+    }
+    @Override
+    public String toString() {
+        return "Film{" +
+                "imdbID='" + imdbID + '\'' +
+                ", director='" + director + '\'' +
+                ", writer='" + writer + '\'' +
+                ", actors='" + actors + '\'' +
+                ", title='" + title + '\'' +
+                ", rated=" + rated +
+                ", year='" + year + '\'' +
+                ", plot='" + plot + '\'' +
+                ", type='" + type + '\'' +
+                ", web='" + web + '\'' +
+                ", genre='" + genre + '\'' +
+                ", language='" + language + '\'' +
+                ", Poster='" + Poster + '\'' +
+                ", runtime=" + runtime +
+                '}';
     }
 }

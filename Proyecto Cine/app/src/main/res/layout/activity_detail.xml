@@ -4,33 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/productimage"
-        android:layout_width="match_parent"
-        android:layout_height="256dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:transitionName="shared_image" />
-
-
-    </android.support.design.widget.AppBarLayout>
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="@dimen/size_fab"
-        android:layout_height="@dimen/size_fab"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/fabnegro"
-        app:borderWidth="0dp"
-        app:elevation="@dimen/fab_elevation"
-        app:layout_anchor="@id/productimage"
-        app:layout_anchorGravity="bottom|right|end" />
-
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/scroll"
         android:layout_width="match_parent"
@@ -98,7 +71,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Year"
+                        android:text="Year :"
                         android:textColor="#404547"
                         android:textSize="15dp" />
 
@@ -146,7 +119,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:text="@string/language_label"
+                    android:text="Language:"
                     android:textColor="#404547"
                     android:textStyle="bold" />
 
@@ -157,14 +130,14 @@
                     android:layout_gravity="center"
                     android:text="Language"
                     android:textColor="#404547"
-                    android:textSize="15dp" />
+                    android:textSize="15dp"/>
 
                 <TextView
                     android:id="@+id/tag_description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingTop="16dp"
-                    android:text="@string/descripcion_label"
+                    android:text="Description"
                     android:textColor="?colorPrimary"
                     android:textStyle="bold" />
 
@@ -172,18 +145,17 @@
                     android:id="@+id/plot"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur placerat ornare nulla a ultrices. Nam accumsan gravida dui ut ornare. Aliquam ultricies dapibus lacus. Suspendisse in justo sed diam suscipit pellentesque tristique non metus. Fusce sit amet dignissim lorem. Etiam vel quam nec nisl viverra placerat. Nam quam est, iaculis." />
-
+                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur placerat ornare nulla a ultrices. Nam accumsan gravida dui ut ornare. Aliquam ultricies dapibus lacus. Suspendisse in justo sed diam suscipit pellentesque tristique non metus. Fusce sit amet dignissim lorem. Etiam vel quam nec nisl viverra placerat. Nam quam est, iaculis."
+                    />
                 <TextView
                     android:id="@+id/writer_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:paddingTop="16dp"
-                    android:text="@string/writer_label"
+                    android:text="Writer:"
+                    android:textStyle="bold"
                     android:textColor="#404547"
-                    android:textStyle="bold" />
-
+                    android:paddingTop="16dp"/>
                 <TextView
                     android:id="@+id/writer"
                     android:layout_width="match_parent"
@@ -191,18 +163,16 @@
                     android:layout_gravity="center"
                     android:text="Writer"
                     android:textColor="#404547"
-                    android:textSize="15dp" />
-
+                    android:textSize="15dp"/>
                 <TextView
                     android:id="@+id/director_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:paddingTop="8dp"
-                    android:text="@string/director_label"
+                    android:text="Director:"
+                    android:textStyle="bold"
                     android:textColor="#404547"
-                    android:textStyle="bold" />
-
+                    android:paddingTop="8dp"/>
                 <TextView
                     android:id="@+id/director"
                     android:layout_width="match_parent"
@@ -210,18 +180,16 @@
                     android:layout_gravity="center"
                     android:text="Director"
                     android:textColor="#404547"
-                    android:textSize="15dp" />
-
+                    android:textSize="15dp"/>
                 <TextView
                     android:id="@+id/actors_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:paddingTop="8dp"
-                    android:text="@string/actors_label"
+                    android:text="Actors:"
+                    android:textStyle="bold"
                     android:textColor="#404547"
-                    android:textStyle="bold" />
-
+                    android:paddingTop="8dp"/>
                 <TextView
                     android:id="@+id/actors"
                     android:layout_width="match_parent"
@@ -229,26 +197,51 @@
                     android:layout_gravity="center"
                     android:text="Actors"
                     android:textColor="#404547"
-                    android:textSize="17dp" />
-
+                    android:textSize="17dp"/>
                 <TextView
-                    android:id="@+id/websiteTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
+                    android:text="View on Browser"
+                    android:id="@+id/websiteTextView"
                     android:drawableLeft="@drawable/ic_open_in_browser_black_24dp"
                     android:drawablePadding="4dp"
-                    android:gravity="center"
-                    android:paddingTop="20dp"
-                    android:text="@string/ver_en_weblabel"
                     android:textColor="#000000"
                     android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"
+                    android:paddingTop="20dp"/>
 
             </LinearLayout>
         </LinearLayout>
 
 
     </android.support.v4.widget.NestedScrollView>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="@dimen/size_fab"
+        android:layout_height="@dimen/size_fab"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/fabnegro"
+        app:borderWidth="0dp"
+        app:elevation="@dimen/fab_elevation"
+        app:layout_anchor="@id/productimage"
+        app:layout_anchorGravity="bottom|right|end" />
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/productimage"
+        android:layout_width="match_parent"
+        android:layout_height="256dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <ImageView
+            android:id="@+id/imageView_user"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:transitionName="shared_image" />
+
+
+    </android.support.design.widget.AppBarLayout>
 
 </android.support.design.widget.CoordinatorLayout>

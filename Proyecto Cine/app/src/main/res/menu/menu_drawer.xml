@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <group android:id="@+id/grupo_regis">
         <item
-        android:id="@+id/item_registrarse"
-        android:icon="@drawable/ic_open_in_browser_black_24dp"
-        android:title="@string/item_registrarse"/>
+            android:id="@+id/item_registrarse"
+            android:icon="@drawable/ic_open_in_browser_black_24dp"
+            android:title="@string/item_registrarse"
+            android:visible="true" />
+        <item
+            android:id="@+id/item_cuenta"
+            android:icon="@drawable/cuenta"
+            android:title="@string/item_cuenta"
+            android:visible="false" />
     </group>
     <group
         android:id="@+id/grupo_principal"
@@ -23,6 +29,7 @@
             android:id="@+id/item_google_maps"
             android:icon="@drawable/ic_google_maps_grey"
             android:title="@string/item_google_maps" />
+
         <item
             android:id="@+id/item_locate"
             android:icon="@drawable/cerca"
@@ -39,14 +46,11 @@
             android:id="@+id/item_mas_info"
             android:icon="@drawable/novedad"
             android:title="@string/item_mas_info" />
+
         <item
             android:id="@+id/item_otras_opciones"
             android:title="@string/item_settings">
             <menu>
-                <item
-                    android:id="@+id/item_cuenta"
-                    android:icon="@drawable/cuenta"
-                    android:title="@string/item_cuenta" />
                 <item
                     android:id="@+id/item_configuracion"
                     android:icon="@drawable/configuracion"
@@ -71,6 +75,7 @@
                     android:title="@string/Espanol"/>
             </menu>
         </item>
+
     </group>
 
 </menu>

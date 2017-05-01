@@ -124,8 +124,8 @@
                 android:value="com.herprogramacion.movielife.activities.film.ActividadPrincipal" />
         </activity>
 
-        <activity android:name=".activities.film.SavedCinesActivity"></activity>
-        <activity android:name=".activities.maps.StreetViewActivity"></activity>
+        <activity android:name=".activities.film.SavedCinesActivity"/>
+        <activity android:name=".activities.maps.StreetViewActivity"/>
+        <activity android:name=".activities.film.Activity_detail_crud"/>
     </application>
-
 </manifest>

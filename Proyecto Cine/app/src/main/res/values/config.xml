@@ -1,0 +1,15 @@
+<resources>
+    <!--
+    Your Twitter Consumer Key. To use Twitter accounts with the demo application, register an
+    application with Twitter and provide the following two values.
+    -->
+    <string name="twitter_consumer_key" translatable="false">XkIcEsj9pumICXOTFS78x1jjM</string>
+
+    <!--
+    Your Twitter Consumer Secret
+    WARNING: By obtaining your Consumer Key and Consumer Secret other programs can perform API
+    operations as your app. Embedding the Consumer Key and Consumer Secret in your app, no matter
+    how obfuscated, makes it vulnerable to being stolen.
+    -->
+    <string name="twitter_consumer_secret" translatable="false">0SROcBGunifenZbjmsugsiMFmcBC0CDKtxkjvAO5rgcqAuX482</string>
+</resources>

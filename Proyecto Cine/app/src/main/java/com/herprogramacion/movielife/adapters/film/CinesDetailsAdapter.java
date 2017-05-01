@@ -94,23 +94,17 @@ package com.herprogramacion.movielife.adapters.film;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.herprogramacion.movielife.R;
-import com.herprogramacion.movielife.activities.film.ActividadDetallesPeliSeries;
 import com.herprogramacion.movielife.activities.film.CinesDetailsActivity;
 import com.herprogramacion.movielife.models.Cines;
-import com.herprogramacion.movielife.models.Pelis;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -154,7 +148,7 @@ public class CinesDetailsAdapter
 
     public void onItemClick(View view, int position) {
         // Imagen a compartir entre transiciones
-        View sharedImage = view.findViewById(R.id.imageView);
+        View sharedImage = view.findViewById(R.id.cine_image);
         CinesDetailsActivity.launch((Activity) context, position, sharedImage,cines);
     }
 

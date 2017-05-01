@@ -6,8 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Modelo de datos estático para alimentar la aplicación
+ * Created by root on 1/05/17.
  */
+
 public class Pelis {
     private int anyo;
     private String nombre;

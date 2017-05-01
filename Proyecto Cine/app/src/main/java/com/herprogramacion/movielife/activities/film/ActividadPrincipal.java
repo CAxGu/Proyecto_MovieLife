@@ -1,12 +1,12 @@
 package com.herprogramacion.movielife.activities.film;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -17,28 +17,45 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ProgressBar;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.firebase.ui.auth.AuthUI;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.herprogramacion.movielife.R;
 import com.herprogramacion.movielife.activities.database.firebase.FireBaseActivity;
 import com.herprogramacion.movielife.activities.database.sqlite.TareasSQLiteActivity;
 import com.herprogramacion.movielife.activities.maps.LocationActivity;
 import com.herprogramacion.movielife.fragments.FragmentCines;
-import com.herprogramacion.movielife.fragments.FragmentoCuenta;
 import com.herprogramacion.movielife.fragments.FragmentoMisFavoritos;
 import com.herprogramacion.movielife.fragments.FragmentoPeliSeries;
+import com.herprogramacion.movielife.fragments.FragmentoPerfil;
+import com.squareup.picasso.Picasso;
 
+import java.util.Arrays;
 import java.util.Locale;
 
 public class ActividadPrincipal extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
     public static String search;
-    public static final String BOOK_DETAIL_KEY = "book";
+    private FirebaseUser user;
+    private TextView email_drawer;
+    private TextView name_drawer;
+    private ImageView photouser_drawer;
+    private String name;
+    private String email;
+    private MenuItem menuSing;
+    private MenuItem menuCount;
+    private static final int RC_SIGN_IN=0;
+
 
 
     @Override
@@ -58,11 +75,46 @@ public class ActividadPrincipal extends AppCompatActivity {
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                return false;
+            }
+        });
+        View header = navigationView.getHeaderView(0);
+        name_drawer = (TextView) header.findViewById(R.id.nameuser_drawer);
+        email_drawer = (TextView) header.findViewById(R.id.mailuser_drawer);
+        photouser_drawer = (ImageView) header.findViewById(R.id.icono_user);
+        if (user != null) {
+            if (user.getProviders().toString().equals("[google.com]")) {
+                name = user.getEmail();
+            } else {
+                name = user.getDisplayName();
+            }
+            if (user.getProviders().toString().equals("[password]"))
+                email = user.getEmail();
+            Uri photoUrl = user.getPhotoUrl();
+            if (photoUrl != null) {
+                Picasso.with(this).load(photoUrl).into(photouser_drawer);
+            }
+
+            name_drawer.setText(name);
+            email_drawer.setText(email);
+            //Hace invisible menu Registrarse y visible Mi cuenta
+            Menu menu = navigationView.getMenu();
+
+            menuSing = menu.findItem(R.id.item_registrarse);
+            menuCount= menu.findItem(R.id.item_cuenta);
+
+            menuSing.setVisible(false);
+            menuCount.setVisible(true);
+        }
 
         if (navigationView != null) {
             prepararDrawer(navigationView);
             // Seleccionar item por defecto
-            seleccionarItem(navigationView.getMenu().getItem(1));
+            seleccionarItem(navigationView.getMenu().getItem(2));
         }
 
     }
@@ -86,11 +138,24 @@ public class ActividadPrincipal extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
 
         switch (itemDrawer.getItemId()) {
+            case R.id.item_registrarse:
+                startActivityForResult(
+                        AuthUI.getInstance()
+                                .createSignInIntentBuilder()
+                                .setProviders(Arrays.asList(
+                                        new AuthUI.IdpConfig.Builder(AuthUI.TWITTER_PROVIDER).build(),
+                                        new AuthUI.IdpConfig.Builder(AuthUI.GOOGLE_PROVIDER).build(),
+                                        new AuthUI.IdpConfig.Builder(AuthUI.EMAIL_PROVIDER).build()))
+                                .setTheme(R.style.DarkTheme)
+                                .setLogo(R.drawable.movielife)
+                                .build(),
+                        RC_SIGN_IN);
+                break;
             case R.id.item_estrenos:
                 fragmentoGenerico = new FragmentoPeliSeries();
                 break;
             case R.id.item_cuenta:
-                fragmentoGenerico = new FragmentoCuenta();
+                fragmentoGenerico = new FragmentoPerfil();
                 break;
             case R.id.item_mas_info:
                 fragmentoGenerico = new FragmentoMisFavoritos();
@@ -136,9 +201,32 @@ public class ActividadPrincipal extends AppCompatActivity {
         // Setear título actual
         setTitle(itemDrawer.getTitle());
     }
+    //On Click salir menu Logout
+    public void singout(MenuItem Item) {
+        AuthUI.getInstance()
+                .signOut(this)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    public void onComplete(@NonNull Task<Void> task) {
+                        finish();
+                        startActivity(new Intent(ActividadPrincipal.this, ActividadPrincipal.class));//
+
+                    }
+                });
+    }
+
 
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_actividad_principal, menu);
+        //menu logout
+        try {
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            if (user != null)
+                getMenuInflater().inflate(R.menu.menu_actividad_principal_auth, menu);
+            else
+                getMenuInflater().inflate(R.menu.menu_actividad_principal, menu);
+        } catch (Exception e) {
+            getMenuInflater().inflate(R.menu.menu_actividad_principal, menu);
+        }
+        //fin menu
         final MenuItem searchItem = menu.findItem(R.id.action_search);
         final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
         //  searchView.setIconifiedByDefault(true);
@@ -180,6 +268,20 @@ public class ActividadPrincipal extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == RC_SIGN_IN){
+            if(resultCode == RESULT_OK){
+                Log.d("Auth","Sign in");
+                finish();
+                startActivity(new Intent(this, ActividadPrincipal.class));
+
+            }else{
+                Log.d("Auth","Sing out");
+            }
+        }
     }
 
     private void change_lang(String lang) {

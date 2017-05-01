@@ -12,18 +12,29 @@
         android:background="@color/accentColor"
         android:gravity="center"
         android:padding="8dp"
-        android:shadowColor="#8a6603"
-        android:shadowDx="3"
-        android:shadowDy="5"
-        android:shadowRadius="5"
         android:text="@string/titulo_estrenos"
+        android:textStyle="bold"
+        android:shadowDx="3" android:shadowDy="5" android:shadowRadius="5"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/color_light"
-        android:textStyle="bold" />
+        android:textColor="@color/color_light" android:shadowColor="#8a6603" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/reciclador"
+    <FrameLayout
+        android:id="@+id/frame_estrenos"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="vertical" />
+        android:visibility="visible">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/reciclador"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"/>
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/add"
+            android:layout_width="@dimen/size_fab"
+            android:layout_height="@dimen/size_fab"
+            android:src="@drawable/fabnegro"
+            android:backgroundTint="@color/accentColor"
+            android:layout_gravity="bottom|center"
+            android:visibility="visible"/>
+    </FrameLayout>
 </LinearLayout>
