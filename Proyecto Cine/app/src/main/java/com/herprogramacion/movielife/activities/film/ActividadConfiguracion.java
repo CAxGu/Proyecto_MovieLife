@@ -20,8 +20,9 @@ public class ActividadConfiguracion extends AppCompatActivity {
         setContentView(R.layout.actividad_configuracion);
 
         FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.add(R.id.contenedor_configuracion, new FragmentoConfiguracion());
-        ft.commit();
+//        ft.add(R.id.contenedor_configuracion, new FragmentoConfiguracion());
+//        ft.commit();
+        ft.replace(R.id.contenedor_configuracion, new FragmentoConfiguracion()).commit();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_configuracion);
         setSupportActionBar(toolbar);

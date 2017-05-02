@@ -1,6 +1,8 @@
 package com.herprogramacion.movielife.activities.film;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -11,8 +13,8 @@ import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
-import com.herprogramacion.movielife.adapters.film.SearchAdapter;
 import com.herprogramacion.movielife.R;
+import com.herprogramacion.movielife.adapters.film.SearchAdapter;
 import com.herprogramacion.movielife.fragments.FragmentSearch;
 import com.herprogramacion.movielife.models.Film;
 import com.herprogramacion.movielife.net.PelisClient;
@@ -33,9 +35,12 @@ public class Search_Activity extends AppCompatActivity {
     public static final String BOOK_DETAIL_KEY = "book";
     private ListView lvBooks;
     private SearchAdapter bookAdapter;
-    private PelisClient client;
+    private static PelisClient client;
     public static final List<Film> boocs = new ArrayList<>();
-    private ProgressBar progress;
+    private static ProgressBar progress;
+    private static int pag;
+    private SharedPreferences preferences;
+    private double maximunDistance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +48,11 @@ public class Search_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_search);
         progress = (ProgressBar) findViewById(R.id.progress);
 //        Log.v("Search",search);
+
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        maximunDistance = (double) preferences.getInt("prf_seekbar", 10);
+
+
         if(search==null)
             search = "empty";
         setTitle(search);
@@ -95,7 +105,7 @@ public class Search_Activity extends AppCompatActivity {
         if(getSupportActionBar()!=null)// Habilitar Up Button
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
-    private void fetchBooks(String query) {
+    private void fetchBooks(final String query) {
         // Show progress bar before making network request
         progress.setVisibility(ProgressBar.VISIBLE);
         client = new PelisClient();
@@ -115,6 +125,10 @@ public class Search_Activity extends AppCompatActivity {
                         // Load model objects into the adapter
                         for (Film film : films) {
                             boocs.add(film);
+                        }
+
+                        for (int i = 1;i<maximunDistance;i++){
+                            fetchBooks_10more(query);
                         }
 
                         Fragment fragmentoGenerico = null;
@@ -139,5 +153,43 @@ public class Search_Activity extends AppCompatActivity {
         });
 
     }
+
+    public static void fetchBooks_10more(String query) {
+        // Show progress bar before making network request
+        progress.setVisibility(ProgressBar.VISIBLE);
+        client = new PelisClient();
+        pag += 1 ; //Ba pasando de pagina
+        client.getMoreBooks(query,pag, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                try {
+                    // hide progress bar
+                    progress.setVisibility(ProgressBar.GONE);
+                    JSONArray docs = null;
+                    if (response != null) {
+                        // Get the docs json array
+                        docs = response.getJSONArray("Search");
+                        // Parse json array into array of model objects
+                        final ArrayList<Film> films = Film.fromJson(docs);
+                        //boocs.clear(); NO queremos eliminar los anteriores
+                        // Load model objects into the adapter
+                        for (Film film : films) {
+                            boocs.add(film);
+                        }
+                    }
+                } catch (JSONException e) {
+                    // Invalid JSON format, show appropriate error.
+                    e.printStackTrace();
+                }
+            }
+
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                progress.setVisibility(ProgressBar.GONE);
+            }
+        });
+
+    }
+
+
 
 }

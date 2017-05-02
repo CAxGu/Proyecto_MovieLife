@@ -66,8 +66,8 @@
             android:label="@string/item_locate"
             android:parentActivityName="com.herprogramacion.movielife.activities.film.ActividadPrincipal">
             <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.herprogramacion.movielife.activities.film.ActividadPrincipal" />
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.herprogramacion.movielife.activities.film.ActividadPrincipal" />
         </activity>
 
         <activity
@@ -124,8 +124,8 @@
                 android:value="com.herprogramacion.movielife.activities.film.ActividadPrincipal" />
         </activity>
 
-        <activity android:name=".activities.film.SavedCinesActivity"/>
-        <activity android:name=".activities.maps.StreetViewActivity"/>
-        <activity android:name=".activities.film.Activity_detail_crud"/>
+        <activity android:name=".activities.film.SavedCinesActivity" />
+        <activity android:name=".activities.maps.StreetViewActivity" />
+        <activity android:name=".activities.film.Activity_detail_crud" />
     </application>
 </manifest>

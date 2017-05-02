@@ -125,7 +125,7 @@ public class SearchDetailActivity extends AppCompatActivity implements View.OnCl
         if (v == fab) {
             DatabaseReference FilmsRef = FirebaseDatabase.getInstance().getReference().child("peliculas_favoritas");
             FilmsRef.push().setValue(film);
-            Snackbar.make(v, "Añadido a Mis Favoritos", Snackbar.LENGTH_LONG)
+            Snackbar.make(v, R.string.agregado_favoritos, Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
         }
 

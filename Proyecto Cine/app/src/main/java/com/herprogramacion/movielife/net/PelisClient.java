@@ -1,6 +1,10 @@
 package com.herprogramacion.movielife.net;
+
+import android.util.Log;
+
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
+
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
@@ -10,6 +14,16 @@ public class PelisClient {
 
     public PelisClient() {
         this.client = new AsyncHttpClient();
+    }
+
+    public void getMoreBooks(final String query, int pag, JsonHttpResponseHandler handler){
+        try {
+            String url = getApiUrl("?s=");
+            Log.v("OO",url + (query+"&page="+String.valueOf(pag)));
+            client.get(url +(query+"&page="+String.valueOf(pag)), handler);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private String getApiUrl(String relativeUrl) {

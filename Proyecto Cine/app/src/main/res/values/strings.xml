@@ -5,24 +5,6 @@
     <string name="Espanol">Español</string>
     <string name="Ingles">Ingles</string>
 
-    <!-- notificaciones via email -->
-    <!--
-    <string name="categoria_notificaciones">Notificaciones</string>
-
-    <string name="titulo_preferencia">Frecuencia de notificaciones por correo</string>
-    <string name="key_preferencia">lista_frecuencias</string>
-    <string-array name="lista_frecuencia">
-        <item>Un correo diario</item>
-        <item>Un correo a la semana</item>
-        <item>Un correo al mes</item>
-        <item>No quiero recibir correos</item>
-    </string-array>
-    <string-array name="lista_valores_frecuencia">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-    </string-array>-->
 
     <!-- Setting Idiomas -->
     <string name="categoria_idiomas">Idioma</string>
@@ -84,6 +66,8 @@
     <string name="titulo_tab_direcciones">DIRECCIONES</string>
     <string name="titulo_tab_tarjetas">TARJETAS</string>
     <string name="titulo_actividad_configuracion">Configuración</string>
+    <string name="prf_busqueda">Resultados de Busqueda</string>
+    <string name="prf_results">Total de Páginas:</string>
 
 
     <!-- Anotaciones -->
@@ -100,6 +84,7 @@
     <string name="etiqueta_info_usuario">Información del usuario</string>
     <string name="title_activity_actividad_detalles_inicio">ActividadDetallesInicio</string>
     <string name="title_activity_locate">Cerca de </string>
+    <string name="results">Páginas</string>
 
     <!-- Lite Mode -->
     <string name="lite_demo_label">Cerca de ti</string>

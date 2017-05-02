@@ -5,24 +5,6 @@
     <string name="Espanol">Spanish</string>
     <string name="Ingles">English</string>
 
-    <!-- notificaciones via email -->
-    <!--
-    <string name="categoria_notificaciones">Notificaciones</string>
-
-    <string name="titulo_preferencia">Frecuencia de notificaciones por correo</string>
-    <string name="key_preferencia">lista_frecuencias</string>
-    <string-array name="lista_frecuencia">
-        <item>Un correo diario</item>
-        <item>Un correo a la semana</item>
-        <item>Un correo al mes</item>
-        <item>No quiero recibir correos</item>
-    </string-array>
-    <string-array name="lista_valores_frecuencia">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-    </string-array>-->
 
     <!-- Setting Idiomas -->
     <string name="categoria_idiomas">Language</string>
@@ -84,6 +66,8 @@
     <string name="titulo_tab_direcciones">ADRESS</string>
     <string name="titulo_tab_tarjetas">CARDS</string>
     <string name="titulo_actividad_configuracion">Settings</string>
+    <string name="prf_busqueda">Search Results : </string>
+    <string name="prf_results">Total Pages:</string>
 
 
     <!-- Anotaciones -->
@@ -100,6 +84,7 @@
     <string name="etiqueta_info_usuario">Users Information</string>
     <string name="title_activity_actividad_detalles_inicio">DetailsStartActivity</string>
     <string name="title_activity_locate">Arround You </string>
+    <string name="results">Pages</string>
 
     <!-- Lite Mode -->
     <string name="lite_demo_label">Arround You</string>
