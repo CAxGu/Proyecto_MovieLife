@@ -16,7 +16,7 @@
 ------------------------------
 
 * Implementaciones Carlos:
-    * Link GitLab: 
+    * Link GitLab: https://CAxGu@gitlab.com/CAxGu/MovieLifeCarlos.git
     * Acoplar distintos módulos a la aplicación base 'RicoPaRico':
         * Geolocate GoogleMaps Apidemo
         * CRUD Firebase inicial
