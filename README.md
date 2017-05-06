@@ -38,7 +38,9 @@
 # FUNCIONALIDAD DEL PROYECTO
 ------------------------------
 
-Nuestro proyecto es una aplicación de cine. Ofrece información sobre películas y series, extraída desde la API de OMDB.
+Nuestro proyecto es una aplicación de cine. Ofrece información sobre películas y series extraída desde la API de OMDB, así cómo de cines próximos a nuestra localización, servidos ya sea en un listado, o geolocalizados en un mapa de Google Maps.
+Nuestra aplicación es totalmente configurable por el usuario, y podrá ser utilizada por un usuario administrador, un usuario registrado mediante su email, twitter o google+, o también por un usuario corriente sin ningún tipo de registro.
+Todos ellos con sus respectivos privilegios y accesos, que explicaremos en su apartado correspondiente.
 
 Menú
 ====
@@ -81,8 +83,11 @@ Mediante la entrada de menú 'Sitúate' accederemos a un fragment de GMAps donde
 
 
 
-Desde estos details del cine podremos acceder a una vista de gmaps, pinchando sobre su dirección, abrir la página web del cine seleccionado en nuestro navegador dandole click en la url o, finalmente realizar una llamada telefónica al mismo mediante un click en su número de teléfono. 
+Desde estos details del cine podremos acceder a una vista de gmaps pinchando sobre su dirección, abrir la página web del cine seleccionado en nuestro navegador dandole click en la url, establecer una ruta gps hasta dicho cine mediante google navigation haciendo click en "cómo llegar" o, finalmente, realizar una llamada telefónica al mismo mediante un click en su número de teléfono. 
 
+
+Sitúate
+====
 Los cines que estarán pintados en la vista de Gmaps a la que accedemos mediante la entrada de menú 'Sitúate', estarán listados dentro de la sección que abriremos al pinchar en la entrada de menú 'Cerca de ti'
 Estos cines estarán almacenados cómo dummys en firebase, en una rama sólo accesible por el administrador de la misma.
 
@@ -95,8 +100,8 @@ Pinchando en uno de ellos, accederemos a los details de los mismos, al igual que
 Buscar
 ====
 
-Cómo hemos comentado antes, desde nuestro Main, tendremos los estrenos presentados por el administrador, sin embargo, si la película que queremos ver no se encuentra entre ellas, podremos buscarla desde la entrada de menú 'Buscar' o desde el icono de la lupa de nuestro Toolbar, accesible desde cualquier otra vista asociada al toolbar principal.
- > **Por defecto cada página de la búsqueda nos mostrará 10 resultados (modificables desde la config.)**
+Cómo hemos comentado antes, en nuestro Main, tendremos los estrenos presentados por el administrador, sin embargo, si la película que queremos ver no se encuentrase entre ellas, podremos buscarla desde la entrada de menú 'Buscar' o desde el icono de la lupa de nuestro Toolbar, accesible desde cualquier otra vista asociada al toolbar principal.
+ > **Por defecto cada página de búsqueda nos mostrará 10 resultados (modificables desde la config.)**
 
 
 <img src="https://firebasestorage.googleapis.com/v0/b/cineapp-b4786.appspot.com/o/seek.jpg?alt=media&token=3608099d-9ff7-4c87-9bf4-dd96780e9628" height="680px" width="380px">
@@ -112,8 +117,8 @@ Settings / Configuración
 ====
 
 
-Desde el apartado de configuración podremos modificar , cómo hemos señalado en el apartado de búsqueda, las páginas que queremos cómo resultado de la misma.
-Para ello haremos uso de un seekbar que adoptará valores de entre 1 a 100 páginas.
+Desde el apartado de configuración, podremos modificar , cómo hemos señalado en el apartado de búsqueda, las páginas que queremos cómo resultado de la misma.
+Para ello haremos uso de un seekbar que adoptará valores entre 1 y 100 páginas.
 
 
 <img src="https://firebasestorage.googleapis.com/v0/b/cineapp-b4786.appspot.com/o/settings.jpg?alt=media&token=de51cb92-4687-4dce-920e-76c8167a47b6" height="680px" width="380px">
@@ -124,7 +129,7 @@ Lang
 ====
 
 
-Finalmente, el apartado de Lang de nuestro menú principal, que consta de dos idiomas Español e Inglés, cambiará en su totalidad el idioma de nuestra app para que el usuario pueda utilizarla en su idioma.Cuando seleccionemos el idioma deseado se relanzará la app en dicho idioma.
+Finalmente, el apartado de Lang de nuestro menú principal, que consta de dos idiomas, Español e Inglés, cambiará en su totalidad el idioma de nuestra app para que el usuario pueda utilizarla en su idioma. Cuando seleccionemos el idioma deseado, se relanzará la app en dicho idioma.
 
 
 
