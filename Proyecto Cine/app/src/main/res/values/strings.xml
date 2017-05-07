@@ -63,6 +63,7 @@
     <string name="titulo_tab_peliculas">PELICULAS</string>
     <string name="titulo_tab_series">SERIES</string>
     <string name="titulo_tab_perfil">PERFIL</string>
+    <string name="titulo_tab_cines">CINES</string>
     <string name="titulo_tab_direcciones">DIRECCIONES</string>
     <string name="titulo_tab_tarjetas">TARJETAS</string>
     <string name="titulo_actividad_configuracion">Configuración</string>
@@ -78,7 +79,7 @@
     <string name="action_carrito">Añadir al carrito</string>
     <string name="action_insertar">Insertar</string>
     <string name="texto_no_tarjetas">No tienes ninguna tarjeta asociada</string>
-    <string name="etiqueta_user">Carlos Axel</string>
+    <string name="etiqueta_user">No registrado</string>
     <string name="texto_cambiar_contrasena">Cambia tu contraseña</string>
     <string name="etiqueta_contrasena">Contraseña</string>
     <string name="etiqueta_info_usuario">Información del usuario</string>

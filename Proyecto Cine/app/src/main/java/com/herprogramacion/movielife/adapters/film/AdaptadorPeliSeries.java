@@ -108,8 +108,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.herprogramacion.movielife.R;
 import com.herprogramacion.movielife.activities.film.Activity_detail_crud;
-import com.herprogramacion.movielife.activities.film.FirebaseReferences;
-import com.herprogramacion.movielife.activities.film.SearchDetailActivity;
+import com.herprogramacion.movielife.net.FirebaseReferences;
+import com.herprogramacion.movielife.activities.film.DetailActivity;
 import com.herprogramacion.movielife.models.Film;
 
 import java.util.List;
@@ -160,10 +160,10 @@ public class AdaptadorPeliSeries
             if (user.getUid().equals("Y7TqnoVGYrVKvxKzH7ctc96b0xx1")){
                 Activity_detail_crud.launch_crud((Activity) context, position, items);//Si esta registrado y es admin
             }else{
-                SearchDetailActivity.launch((Activity) context, position, items);//Si esta registrado pero no es admin
+                DetailActivity.launch((Activity) context, position, items);//Si esta registrado pero no es admin
             }
         }else{
-            SearchDetailActivity.launch((Activity) context, position, items);//Si no esta registrado
+            DetailActivity.launch((Activity) context, position, items);//Si no esta registrado
         }
     }
 

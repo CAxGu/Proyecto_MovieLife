@@ -20,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.herprogramacion.movielife.R;
 import com.herprogramacion.movielife.models.Film;
+import com.herprogramacion.movielife.net.FirebaseReferences;
 import com.herprogramacion.movielife.net.PelisClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.squareup.picasso.Picasso;
@@ -31,7 +32,7 @@ import org.json.JSONObject;
 import java.util.List;
 
 
-public class SearchDetailActivity extends AppCompatActivity implements View.OnClickListener{
+public class DetailActivity extends AppCompatActivity implements View.OnClickListener{
     private static final String EXTRA_POSITION = "search";
     private static List<Film> itemss ;
     private TextView mWebsiteLabel;
@@ -100,13 +101,28 @@ public class SearchDetailActivity extends AppCompatActivity implements View.OnCl
                     }
                 });
             }catch (Exception e){
-                Log.i("detail","Error firebase "+e.getMessage().toString());
+                Log.i("detail","Error firebase "+e.getMessage());
 
             }
         }
 
 
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child(FirebaseReferences.PELICULAS_REFERENCE);
+        ref.child(film.getImdbID()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Film hola = dataSnapshot.getValue(Film.class);
+                if (hola != null){
+                    fab.setImageResource(R.drawable.fabred);
+                }else
+                    fab.setImageResource(R.drawable.fabnegro);
+            }
 
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
         fab.setOnClickListener(this);
         mWebsiteLabel.setOnClickListener(this);
 
@@ -123,8 +139,8 @@ public class SearchDetailActivity extends AppCompatActivity implements View.OnCl
             }
         }
         if (v == fab) {
-            DatabaseReference FilmsRef = FirebaseDatabase.getInstance().getReference().child("peliculas_favoritas");
-            FilmsRef.push().setValue(film);
+            DatabaseReference FilmsRef = FirebaseDatabase.getInstance().getReference().child(FirebaseReferences.PELICULAS_REFERENCE);
+            FilmsRef.child(film.getImdbID()).setValue(film);
             Snackbar.make(v, R.string.agregado_favoritos, Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
         }
@@ -154,39 +170,39 @@ public class SearchDetailActivity extends AppCompatActivity implements View.OnCl
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {
                     if (response.has("Website"))
-                        SearchDetailActivity.film.setWeb(response.getString("Website"));
+                        DetailActivity.film.setWeb(response.getString("Website"));
                     mWebsiteLabel.setText(film.getWeb());
                     if (response.has("Director")) {
-                        SearchDetailActivity.film.setDirector(response.getString("Director"));
-                        director.setText( SearchDetailActivity.film.getDirector());
+                        DetailActivity.film.setDirector(response.getString("Director"));
+                        director.setText( DetailActivity.film.getDirector());
                     }
                     if (response.has("Writer")){
-                        SearchDetailActivity.film.setWriter(response.getString("Writer"));
-                        writer.setText( SearchDetailActivity.film.getWriter());
+                        DetailActivity.film.setWriter(response.getString("Writer"));
+                        writer.setText( DetailActivity.film.getWriter());
                     }
                     if (response.has("Actors")) {
-                        SearchDetailActivity.film.setActors(response.getString("Actors"));
-                        actors.setText( SearchDetailActivity.film.getActors());
+                        DetailActivity.film.setActors(response.getString("Actors"));
+                        actors.setText( DetailActivity.film.getActors());
                     }
                     if (response.has("Plot")) {
-                        SearchDetailActivity.film.setPlot(response.getString("Plot"));
-                        description.setText(SearchDetailActivity.film.getPlot());
+                        DetailActivity.film.setPlot(response.getString("Plot"));
+                        description.setText(DetailActivity.film.getPlot());
                     }
                     if (response.has("imdbRating")){
-                        SearchDetailActivity.film.setRated(response.getDouble("imdbRating"));
-                        rating.setRating((float) SearchDetailActivity.film.getRated());
+                        DetailActivity.film.setRated(response.getDouble("imdbRating"));
+                        rating.setRating((float) DetailActivity.film.getRated());
                     }
                     if (response.has("Year")){
-                        SearchDetailActivity.film.setYear(response.getString("Year"));
-                        year.setText( SearchDetailActivity.film.getYear());
+                        DetailActivity.film.setYear(response.getString("Year"));
+                        year.setText( DetailActivity.film.getYear());
                     }
                     if (response.has("Language")){
-                        SearchDetailActivity.film.setLanguage(response.getString("Language"));
-                        lang.setText( SearchDetailActivity.film.getLanguage());
+                        DetailActivity.film.setLanguage(response.getString("Language"));
+                        lang.setText( DetailActivity.film.getLanguage());
                     }
                     if (response.has("Genre")){
-                        SearchDetailActivity.film.setGenre(response.getString("Genre"));
-                        genre.setText( SearchDetailActivity.film.getGenre());
+                        DetailActivity.film.setGenre(response.getString("Genre"));
+                        genre.setText( DetailActivity.film.getGenre());
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -195,7 +211,7 @@ public class SearchDetailActivity extends AppCompatActivity implements View.OnCl
         });
     }
     public  static void launch(Activity context, int position, List<Film> items){
-        Intent intent = new Intent(context,SearchDetailActivity.class);
+        Intent intent = new Intent(context,DetailActivity.class);
         intent.putExtra(EXTRA_POSITION,position);
         itemss=items;
         film = items.get(position);

@@ -64,6 +64,7 @@ public class FragmentoMisFavoritos extends Fragment {
         AdaptadorSecciones adapter = new AdaptadorSecciones(getFragmentManager());
         adapter.addFragment(FragmentoMisFavoritosCont.nuevaInstancia(0), getString(R.string.titulo_tab_peliculas));
         adapter.addFragment(FragmentoMisFavoritosCont.nuevaInstancia(1), getString(R.string.titulo_tab_series));
+        adapter.addFragment(FragmentoMisFavoritosCont.nuevaInstancia(2), getString(R.string.titulo_tab_cines));
                viewPager.setAdapter(adapter);
     }
 

@@ -24,7 +24,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.database.DataSnapshot;
@@ -36,13 +35,10 @@ import com.herprogramacion.movielife.R;
 import com.herprogramacion.movielife.activities.maps.LocationActivity;
 import com.herprogramacion.movielife.activities.maps.StreetViewActivity;
 import com.herprogramacion.movielife.models.Cines;
+import com.herprogramacion.movielife.models.Film;
+import com.herprogramacion.movielife.net.FirebaseReferences;
 
-import org.parceler.Parcels;
-
-import java.util.Iterator;
 import java.util.List;
-
-import butterknife.ButterKnife;
 
 
 public class CinesDetailsActivity extends AppCompatActivity implements View.OnClickListener {
@@ -124,6 +120,22 @@ public class CinesDetailsActivity extends AppCompatActivity implements View.OnCl
         telfnumber.setText(detallesCines.getTelf());
 
         Glide.with(this).load(detallesCines.getIdDrawable()).into(imagen);
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child(FirebaseReferences.CINES_REFERENCE);
+        ref.child(cine.getIdCINE()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Film hola = dataSnapshot.getValue(Film.class);
+                if (hola != null){
+                    saveimg.setImageResource(R.drawable.fabred);
+                }else
+                    saveimg.setImageResource(R.drawable.fabnegro);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
 

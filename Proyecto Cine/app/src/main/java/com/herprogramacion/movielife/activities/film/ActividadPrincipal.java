@@ -1,9 +1,12 @@
 package com.herprogramacion.movielife.activities.film;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.database.Cursor;
+import android.database.MatrixCursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,17 +15,21 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.MenuItemCompat;
+import android.support.v4.widget.CursorAdapter;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -37,25 +44,21 @@ import com.herprogramacion.movielife.fragments.FragmentCines;
 import com.herprogramacion.movielife.fragments.FragmentoMisFavoritos;
 import com.herprogramacion.movielife.fragments.FragmentoPeliSeries;
 import com.herprogramacion.movielife.fragments.FragmentoPerfil;
+import com.herprogramacion.movielife.net.DBAdapter;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 
 public class ActividadPrincipal extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
     public static String search;
-    private FirebaseUser user;
-    private TextView email_drawer;
-    private TextView name_drawer;
-    private ImageView photouser_drawer;
-    private String name;
     private String email;
-    private MenuItem menuSing;
-    private MenuItem menuCount;
-    private static final int RC_SIGN_IN=0;
-
+    private DBAdapter mDbHelper;
+    private static final int RC_SIGN_IN = 0;
 
 
     @Override
@@ -72,10 +75,12 @@ public class ActividadPrincipal extends AppCompatActivity {
             actionBar.setHomeAsUpIndicator(R.drawable.drawer_toggle);
             actionBar.setTitle(getString(R.string.app_name));
         }
+        mDbHelper = new DBAdapter(this);
+        mDbHelper.open();
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        user = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -83,10 +88,11 @@ public class ActividadPrincipal extends AppCompatActivity {
             }
         });
         View header = navigationView.getHeaderView(0);
-        name_drawer = (TextView) header.findViewById(R.id.nameuser_drawer);
-        email_drawer = (TextView) header.findViewById(R.id.mailuser_drawer);
-        photouser_drawer = (ImageView) header.findViewById(R.id.icono_user);
+        TextView name_drawer = (TextView) header.findViewById(R.id.nameuser_drawer);
+        TextView email_drawer = (TextView) header.findViewById(R.id.mailuser_drawer);
+        ImageView photouser_drawer = (ImageView) header.findViewById(R.id.icono_user);
         if (user != null) {
+            String name;
             if (user.getProviders().toString().equals("[google.com]")) {
                 name = user.getEmail();
             } else {
@@ -104,18 +110,16 @@ public class ActividadPrincipal extends AppCompatActivity {
             //Hace invisible menu Registrarse y visible Mi cuenta
             Menu menu = navigationView.getMenu();
 
-            menuSing = menu.findItem(R.id.item_registrarse);
-            menuCount= menu.findItem(R.id.item_cuenta);
+            MenuItem menuSing = menu.findItem(R.id.item_registrarse);
+            MenuItem menuCount = menu.findItem(R.id.item_cuenta);
 
             menuSing.setVisible(false);
             menuCount.setVisible(true);
         }
 
-        if (navigationView != null) {
-            prepararDrawer(navigationView);
-            // Seleccionar item por defecto
-            seleccionarItem(navigationView.getMenu().getItem(2));
-        }
+        prepararDrawer(navigationView);
+        // Seleccionar item por defecto
+        seleccionarItem(navigationView.getMenu().getItem(2));
 
     }
 
@@ -158,10 +162,10 @@ public class ActividadPrincipal extends AppCompatActivity {
                 fragmentoGenerico = new FragmentoPerfil();
                 break;
             case R.id.item_mas_info:
-                fragmentoGenerico = new FragmentoMisFavoritos();
+                startActivity(new Intent(this, SavedFilmsActivity.class));
                 break;
             case R.id.item_mis_favoritos:
-                startActivity(new Intent(this, SavedFilmsActivity.class));
+                fragmentoGenerico = new FragmentoMisFavoritos();
                 break;
             case R.id.item_mis_favoritos_cines:
                 startActivity(new Intent(this, SavedCinesActivity.class));
@@ -201,6 +205,7 @@ public class ActividadPrincipal extends AppCompatActivity {
         // Setear título actual
         setTitle(itemDrawer.getTitle());
     }
+
     //On Click salir menu Logout
     public void singout(MenuItem Item) {
         AuthUI.getInstance()
@@ -241,6 +246,7 @@ public class ActividadPrincipal extends AppCompatActivity {
                     searchView.setQuery("", false);
                     searchView.setIconified(true);
                     searchItem.collapseActionView();
+                    mDbHelper.createTodo_words(query);
                     startactividad();
                     return true;
                 } else
@@ -248,9 +254,66 @@ public class ActividadPrincipal extends AppCompatActivity {
             }
 
             @Override
-            public boolean onQueryTextChange(String s) {
-                return false;
+            public boolean onQueryTextChange(final String s) {
+                try {
+
+                    if (s.length() > 0) {
+                        Cursor hola = mDbHelper.fetchAllTodos_word(s);
+                        //Cursor Adaptor
+                        String[] columnNames = {"_id", "word", "datetime"};
+                        MatrixCursor cursor = new MatrixCursor(columnNames);
+                        String[] temp = new String[3];
+                        int id = 0;
+                        while (hola.moveToNext()) {
+                            temp[0] = Integer.toString(id++);
+                            temp[1] = hola.getString(0);
+                            temp[2] = hola.getString(1);
+                            cursor.addRow(temp);
+                        }
+
+                        final CursorAdapter cursorAdapter = new CursorAdapter(getApplicationContext(), cursor, false) {
+                            @Override
+                            public View newView(Context context, Cursor cursor, ViewGroup parent) {
+                                return LayoutInflater.from(context).inflate(R.layout.search_suggestion_list_item, parent, false);
+                            }
+
+                            @Override
+                            public void bindView(View view, final Context context, final Cursor cursor) {
+                                final TextView suggest = (TextView) view.findViewById(R.id.suggest);
+                                final TextView num = (TextView) view.findViewById(R.id.number);
+                                ImageView putInSearchBox = (ImageView) view.findViewById(R.id.put_in_search_box);
+                                String body = cursor.getString(cursor.getColumnIndexOrThrow("word"));
+                                final String number = cursor.getString(cursor.getColumnIndexOrThrow("_id"));
+                                num.setText(number);
+                                suggest.setText(body);
+                                suggest.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        searchView.setQuery(suggest.getText(), true);
+                                        searchView.clearFocus();
+                                    }
+                                });
+                                putInSearchBox.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Log.e("sd", num.getText().toString());
+                                        mDbHelper.deleteTodo_word(suggest.getText().toString());
+                                        Toast.makeText(context, "Borrado correctamente", Toast.LENGTH_SHORT).show();
+                                        refresh_words(searchView, s);
+                                    }
+                                });
+                            }
+                        };
+                        searchView.setSuggestionsAdapter(cursorAdapter);
+
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return true;
             }
+
         });
 
         return true;
@@ -269,17 +332,18 @@ public class ActividadPrincipal extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == RC_SIGN_IN){
-            if(resultCode == RESULT_OK){
-                Log.d("Auth","Sign in");
+        if (requestCode == RC_SIGN_IN) {
+            if (resultCode == RESULT_OK) {
+                Log.d("Auth", "Sign in");
                 finish();
                 startActivity(new Intent(this, ActividadPrincipal.class));
 
-            }else{
-                Log.d("Auth","Sing out");
+            } else {
+                Log.d("Auth", "Sing out");
             }
         }
     }
@@ -296,9 +360,9 @@ public class ActividadPrincipal extends AppCompatActivity {
         getApplicationContext().getResources().updateConfiguration(config, null);
         //getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
 
-       finish();
-       Intent refresh = new Intent(this, ActividadPrincipal.class);
-       startActivity(refresh);
+        finish();
+        Intent refresh = new Intent(this, ActividadPrincipal.class);
+        startActivity(refresh);
     }
 
     public void loadLocale() {
@@ -319,4 +383,56 @@ public class ActividadPrincipal extends AppCompatActivity {
         editor.commit();
     }
 
+    public void refresh_words(final SearchView searchView, final String s) {//no se puede hacer statico para que accedan desde otra activity
+        Cursor hola = mDbHelper.fetchAllTodos_word(s);
+        //Cursor Adaptor
+        String[] columnNames = {"_id", "word", "datetime"};
+        MatrixCursor cursor = new MatrixCursor(columnNames);
+        String[] temp = new String[3];
+        int id = 0;
+        while (hola.moveToNext()) {
+            temp[0] = Integer.toString(id++);
+            temp[1] = hola.getString(0);
+            temp[2] = hola.getString(1);
+            cursor.addRow(temp);
+        }
+
+        final CursorAdapter cursorAdapter = new CursorAdapter(getApplicationContext(), cursor, false) {
+            final List<String> del = new ArrayList<String>();
+
+            @Override
+            public View newView(Context context, Cursor cursor, ViewGroup parent) {
+                return LayoutInflater.from(context).inflate(R.layout.search_suggestion_list_item, parent, false);
+            }
+
+            @Override
+            public void bindView(View view, final Context context, final Cursor cursor) {
+                final TextView suggest = (TextView) view.findViewById(R.id.suggest);
+                final TextView num = (TextView) view.findViewById(R.id.number);
+                ImageView putInSearchBox = (ImageView) view.findViewById(R.id.put_in_search_box);
+                String body = cursor.getString(cursor.getColumnIndexOrThrow("word"));
+                final String number = cursor.getString(cursor.getColumnIndexOrThrow("_id"));
+                num.setText(number);
+                suggest.setText(body);
+                suggest.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        searchView.setQuery(suggest.getText(), true);
+                        searchView.clearFocus();
+                    }
+                });
+                putInSearchBox.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.e("sd", num.getText().toString());
+                        mDbHelper.deleteTodo_word(suggest.getText().toString());
+                        Toast.makeText(context, "Borrado correctamente", Toast.LENGTH_SHORT).show();
+                        refresh_words(searchView, s);
+                    }
+                });
+            }
+        };
+        searchView.setSuggestionsAdapter(cursorAdapter);
     }
+
+}

@@ -79,7 +79,7 @@
         </activity>
 
         <activity
-            android:name="com.herprogramacion.movielife.activities.film.SearchDetailActivity"
+            android:name="com.herprogramacion.movielife.activities.film.DetailActivity"
             android:label="@string/item_peliculas"
             android:parentActivityName="com.herprogramacion.movielife.activities.film.Search_Activity">
             <meta-data

@@ -10,18 +10,26 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.herprogramacion.movielife.R;
-import com.herprogramacion.movielife.activities.film.DetailActivity;
-import com.herprogramacion.movielife.models.Film;
+import com.herprogramacion.movielife.activities.film.CinesDetailsActivity;
+import com.herprogramacion.movielife.net.FirebaseReferences;
+import com.herprogramacion.movielife.models.Cines;
 
 import java.util.List;
 
-public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder> implements ItemClickListener {
+/**
+ * Created by root on 2/05/17.
+ */
+
+public class FavoritosAdapterCines  extends RecyclerView.Adapter<FavoritosAdapterCines.ViewHolder> implements ItemClickListener {
 
     private final Context context;
-    public final List<Film> items;
+    private final List<Cines> items;
 
-    public SearchAdapter(Context context, List<Film> items) {
+
+    public FavoritosAdapterCines(final Context context, final List<Cines> items ) {
         this.context = context;
         this.items = items;
     }
@@ -31,6 +39,14 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         return items.size();
 
     }
+    private void delete(int position) { //removes the row
+        Cines item = items.get(position);
+        DatabaseReference myRef = FirebaseDatabase.getInstance().getReference().child(FirebaseReferences.CINES_REFERENCE);
+        myRef.child(item.getIdCINE()).removeValue();
+        items.remove(position);
+        notifyItemRemoved(position);
+    }
+
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
@@ -41,33 +57,27 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
-        Film item = items.get(i);
+        Cines item = items.get(i);
 
         Glide.with(viewHolder.itemView.getContext())
-                .load(item.getPoster())
+                .load(item.getIdDrawable())
                 .centerCrop()
                 .into(viewHolder.imagen);
-        viewHolder.title.setText(item.getTitle());
-        viewHolder.year.setText("" + item.getYear());
+        viewHolder.title.setText(item.getNombre());
+        viewHolder.year.setText(item.getAdress());
     }
 
     public void onItemClick(View view, int position) {
-        // Imagen a compartir entre transiciones
-        //ImageView sharedImage = ImageView.(R.id.ivBookCover);
-        DetailActivity.launch((Activity) context, position, items);
+        CinesDetailsActivity.launch((Activity) context, position,null, items);
     }
 
-    /**
-     * ViewHolder para reciclar elementos
-     */
-
-    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         // Campos respectivos de un item
         public TextView title;
         public TextView year;
         public ImageView imagen;
 
-        public ItemClickListener listener;
+        ItemClickListener listener;
 
         public ViewHolder(View v, ItemClickListener listener) {
             super(v);
@@ -75,6 +85,13 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
             year = (TextView) v.findViewById(R.id.year_title);
             imagen = (ImageView) v.findViewById(R.id.image_item);
             v.setOnClickListener(this);
+            v.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    delete(getAdapterPosition());
+                    return false;
+                }
+            });
             this.listener = listener;
         }
 
@@ -83,6 +100,3 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         }
     }
 }
-
-
-

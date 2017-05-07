@@ -21,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.herprogramacion.movielife.R;
 import com.herprogramacion.movielife.activities.film.Activity_detail_crud;
-import com.herprogramacion.movielife.activities.film.FirebaseReferences;
+import com.herprogramacion.movielife.net.FirebaseReferences;
 import com.herprogramacion.movielife.adapters.film.AdaptadorPeliSeries;
 import com.herprogramacion.movielife.models.Film;
 
@@ -33,7 +33,6 @@ import java.util.List;
  */
 public class FragmentoPeliSeries extends Fragment {
     private RecyclerView reciclador;
-    private LinearLayoutManager layoutManager;
     private AdaptadorPeliSeries adaptador;
     private FloatingActionButton add;
     private List<Film> movies;
@@ -50,7 +49,7 @@ public class FragmentoPeliSeries extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         add = (FloatingActionButton) view.findViewById(R.id.add);
         reciclador = (RecyclerView) view.findViewById(R.id.reciclador);
-        layoutManager = new LinearLayoutManager(getActivity());
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         reciclador.setLayoutManager(layoutManager);
 
     }
@@ -85,7 +84,7 @@ public class FragmentoPeliSeries extends Fragment {
         ref.child(FirebaseReferences.ESTRENOS_REFERNCE).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                movies = new ArrayList<Film>();
+                movies = new ArrayList<>();
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     Film post = postSnapshot.getValue(Film.class);
                     if (post != null) {
@@ -100,14 +99,8 @@ public class FragmentoPeliSeries extends Fragment {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Log.e("BD", databaseError.getMessage());
+                Log.e("BD_Firebase", databaseError.getMessage());
             }
         });
-
-
-        if (movies != null) {
-            adaptador = new AdaptadorPeliSeries(getContext(), movies);
-            reciclador.setAdapter(adaptador);
-        }
     }
 }
