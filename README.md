@@ -32,8 +32,14 @@
     * Seetings con Seekbar
 
 * Implementaciones Oscar:
+    * Link Gitlab: https://oscll@gitlab.com/oscll/MovieLife.git
+    * Implementacion search API(OMDB)
+    * Autentificacion con firebase , twitter y google
+    * CRUD Firebase Estrenos
+    * Guardar las busquedas en SQLite
 
 * Implementaciones Conjuntas:
+    * Union favoritos
 
 # FUNCIONALIDAD DEL PROYECTO
 ------------------------------
@@ -65,9 +71,9 @@ Desde la entrada Estrenos (main) , nos mostrará las películas en estreno que h
 <img src="https://firebasestorage.googleapis.com/v0/b/cineapp-b4786.appspot.com/o/main.jpg?alt=media&token=e5b3cb2c-5012-47ea-b1af-5e52aa104d8d" height="680px" width="380px">
 
 
-CRUD (SQLITE)
+CRUD (Firebase)
 ====
-**(explicacion de que podemos hacer dependiendo de que user este logeado)**
+Aqui el unico que tiene acceso a este crud es la cuenta de movielife loggeado a traves de google . Una vez loggeado puede crear , eliminar y modificar los estrenos . Aqui se verfican algunos campos como pueden ser el imdbID , web url , img url ... 
 
 
 Cerca de ti
@@ -109,7 +115,7 @@ Cómo hemos comentado antes, en nuestro Main, tendremos los estrenos presentados
 
 MIS FAVORITOS
 ====
-**(explicacion de que podemos guardar en favoritos y donde se guarda)**
+En favoritos podemos guardar peliculas de la api , estrenos y cines que se subiran a firebase y se podran observar en diferentes "tabs"(peliculas , series y cines) 
 
 
 
