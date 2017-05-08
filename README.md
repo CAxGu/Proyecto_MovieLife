@@ -53,8 +53,8 @@ Menú
 
 El menú principal nos ofrece diferentes opciones desde donde podemos movernos dentro de la aplicación
 
-<img src="https://firebasestorage.googleapis.com/v0/b/cineapp-b4786.appspot.com/o/menu1.jpg?alt=media&token=a52af498-68fb-4376-9cfb-061ae4f99316" height="680px" width="380px">
-<img src="https://firebasestorage.googleapis.com/v0/b/cineapp-b4786.appspot.com/o/menu2.jpg?alt=media&token=78c8ecc8-8f3e-4a5d-9c8a-9b4976001fd0" height="680px" width="380px">
+<img src="https://firebasestorage.googleapis.com/v0/b/cineapp-b4786.appspot.com/o/menu12.jpg?alt=media&token=3105c042-2785-4551-9403-51b2b5c6f12a" height="680px" width="380px">
+<img src="https://firebasestorage.googleapis.com/v0/b/cineapp-b4786.appspot.com/o/menu22.jpg?alt=media&token=45f50f5d-a70e-49c7-99d7-f7b4f8343126" height="680px" width="380px">
 
 
 Registrarse
@@ -74,6 +74,18 @@ Desde la entrada Estrenos (main) , nos mostrará las películas en estreno que h
 CRUD (Firebase)
 ====
 Aqui el unico que tiene acceso a este crud es la cuenta de movielife loggeado a traves de google . Una vez loggeado puede crear , eliminar y modificar los estrenos . Aqui se verfican algunos campos como pueden ser el imdbID , web url , img url ... 
+
+>CREATE. Pulsando el floatting button amarillo podemos crear una entrada desde 0
+</BR>
+
+<img src="https://firebasestorage.googleapis.com/v0/b/cineapp-b4786.appspot.com/o/crudcreate.jpg?alt=media&token=c3e18726-1327-4e6b-9122-2733af9c6c4d" height="680px" width="380px">
+<img src="https://firebasestorage.googleapis.com/v0/b/cineapp-b4786.appspot.com/o/crudcreate2.jpg?alt=media&token=a9152b7c-4788-4f75-8b52-fea069958743" height="680px" width="380px">
+<img src="https://firebasestorage.googleapis.com/v0/b/cineapp-b4786.appspot.com/o/crudcreate3.jpg?alt=media&token=c5a88538-0f44-466a-8590-93147d9ab10b" height="680px" width="380px">
+
+>UPDATE. Clickando sobre cualquier item de la lista del crud, podremos editar su contenido.
+
+<img src="https://firebasestorage.googleapis.com/v0/b/cineapp-b4786.appspot.com/o/crudupdate1.jpg?alt=media&token=4460a5d7-b454-4e4d-ba4c-0789d491b879" height="680px" width="380px">
+<img src="https://firebasestorage.googleapis.com/v0/b/cineapp-b4786.appspot.com/o/crudupdate2.jpg?alt=media&token=62afe344-5811-4d21-8bdf-e3663743c2de" height="680px" width="380px">
 
 
 Cerca de ti
@@ -117,7 +129,11 @@ MIS FAVORITOS
 ====
 En favoritos podemos guardar peliculas de la api , estrenos y cines que se subiran a firebase y se podran observar en diferentes "tabs"(peliculas , series y cines) 
 
+>Todos ellos se podrán borrar con un LongClick sobre el item deseado
 
+<img src="https://firebasestorage.googleapis.com/v0/b/cineapp-b4786.appspot.com/o/misfavspelis.jpg?alt=media&token=5dfde8c2-abf6-4dbf-acb5-4d1948ac2978" height="680px" width="380px">
+<img src="https://firebasestorage.googleapis.com/v0/b/cineapp-b4786.appspot.com/o/misfavsseries.jpg?alt=media&token=b49d3d43-356b-432b-b5e8-e4a5de8a5a56" height="680px" width="380px">
+<img src="https://firebasestorage.googleapis.com/v0/b/cineapp-b4786.appspot.com/o/misfavcines.jpg?alt=media&token=4f554ed1-abab-4107-b2cf-c4b0890a2ff2" height="680px" width="380px">
 
 Settings / Configuración
 ====
@@ -129,6 +145,13 @@ Para ello haremos uso de un seekbar que adoptará valores entre 1 y 100 páginas
 
 <img src="https://firebasestorage.googleapis.com/v0/b/cineapp-b4786.appspot.com/o/settings.jpg?alt=media&token=de51cb92-4687-4dce-920e-76c8167a47b6" height="680px" width="380px">
 
+Mas Info.
+=========
+
+En esta entrada de menú se abrirá una ventana emergente donde dará información extra sobre nuestro proyecto. En este caso, nuestros nombres, para que módulo hemos programado la app y de qué centro somos.
+
+
+<img src="https://firebasestorage.googleapis.com/v0/b/cineapp-b4786.appspot.com/o/about.jpg?alt=media&token=f04bcddf-0af4-4785-bdb8-105a22624b3c" height="680px" width="380px">
 
 
 Lang
@@ -140,5 +163,5 @@ Finalmente, el apartado de Lang de nuestro menú principal, que consta de dos id
 
 
 
-<img src="https://firebasestorage.googleapis.com/v0/b/cineapp-b4786.appspot.com/o/lang.jpg?alt=media&token=ffa21179-50d0-4405-86e9-f85dc0f28879" height="680px" width="380px">
+<img src="https://firebasestorage.googleapis.com/v0/b/cineapp-b4786.appspot.com/o/menulang.jpg?alt=media&token=d83de7fb-593b-4c4f-987c-ac67a3c718d3" height="680px" width="380px">
 

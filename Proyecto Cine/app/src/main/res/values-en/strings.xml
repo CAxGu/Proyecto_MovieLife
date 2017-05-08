@@ -43,7 +43,6 @@
     <string name="item_cuenta">My Account</string>
     <string name="item_mas_info">More Info.</string>
     <string name="item_mis_favoritos">My Favourites</string>
-    <string name="item_mis_favoritos_cines">My Favourite Cinemas </string>
     <string name="item_configuracion">Settings</string>
     <string name="item_locate">Arround You</string>
     <string name="item_peliculas">Seek</string>
@@ -114,7 +113,13 @@
 
     <!-- FIREBASE -->
     <string name="main.message.addelement">Add new element</string>
-    <string name="Alta">Admission OK</string>
+    <string name="Alta">Admission OK</string>Ç
+
+    <!-- ABOUT -->
+    <string name="about_message">This app has been made by Oscar LlorenÇ and Carlos Axel Castex as
+        final Androids Studio project of the module <i>Programacion</i> from DAW
+    Desarrollo de Aplicaciones Web imparted at the I.E.S LStacio (Ontinyent).</string>
+
 
 </resources>
 

@@ -18,6 +18,7 @@ import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.CursorAdapter;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
@@ -162,13 +163,10 @@ public class ActividadPrincipal extends AppCompatActivity {
                 fragmentoGenerico = new FragmentoPerfil();
                 break;
             case R.id.item_mas_info:
-                startActivity(new Intent(this, SavedFilmsActivity.class));
+                showAbout();
                 break;
             case R.id.item_mis_favoritos:
                 fragmentoGenerico = new FragmentoMisFavoritos();
-                break;
-            case R.id.item_mis_favoritos_cines:
-                startActivity(new Intent(this, SavedCinesActivity.class));
                 break;
             case R.id.item_configuracion:
                 startActivity(new Intent(this, ActividadConfiguracion.class));
@@ -434,5 +432,11 @@ public class ActividadPrincipal extends AppCompatActivity {
         };
         searchView.setSuggestionsAdapter(cursorAdapter);
     }
-
+    private void showAbout() {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.item_mas_info)
+                .setMessage(R.string.about_message)
+                .setPositiveButton(android.R.string.ok, null)
+                .show();
+    }
 }

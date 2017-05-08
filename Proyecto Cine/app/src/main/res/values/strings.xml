@@ -43,7 +43,6 @@
     <string name="item_cuenta">Mi Cuenta</string>
     <string name="item_mas_info">Mas Info.</string>
     <string name="item_mis_favoritos">Mis Favoritos</string>
-    <string name="item_mis_favoritos_cines">Mis Cines Favoritos </string>
     <string name="item_configuracion">Configuración</string>
     <string name="item_locate">Cerca de ti</string>
     <string name="item_peliculas">Buscar</string>
@@ -115,6 +114,11 @@
     <!-- FIREBASE -->
     <string name="main.message.addelement">Agregar un elemento nuevo</string>
     <string name="Alta">Alta OK</string>
+
+    <!-- ABOUT -->
+    <string name="about_message">Esta app ha sido creada por Oscar LlorenÇ y Carlos Axel Castex como
+        proyecto final de Android Studio del modulo de <i>Programacion</i> de DAW
+    Desarrollo de Aplicaciones Web impartido en  I.E.S LStacio (Ontinyent).</string>
 
 </resources>
 
