@@ -161,7 +161,11 @@ Lang
 Finalmente, el apartado de Lang de nuestro menú principal, que consta de dos idiomas, Español e Inglés, cambiará en su totalidad el idioma de nuestra app para que el usuario pueda utilizarla en su idioma. Cuando seleccionemos el idioma deseado, se relanzará la app en dicho idioma.
 
 
-
-
 <img src="https://firebasestorage.googleapis.com/v0/b/cineapp-b4786.appspot.com/o/menulang.jpg?alt=media&token=d83de7fb-593b-4c4f-987c-ac67a3c718d3" height="680px" width="380px">
+
+
+License
+=======
+MovieLife © 2017 by CAxGu and oscll is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International. To view a copy of this license, visit https://creativecommons.org/licenses/by-nc-sa/4.0/
+
 
